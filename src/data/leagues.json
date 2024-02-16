@@ -1,0 +1,62 @@
+[
+    {
+        "id": "11",
+        "sportId": "1",
+        "name": "England"
+    },
+    {
+        "id": "12",
+        "sportId": "1",
+        "name": "Poland"
+    },
+    {
+        "id": "13",
+        "sportId": "1",
+        "name": "Germany"
+    },
+    {
+        "id": "14",
+        "sportId": "1",
+        "name": "Italy"
+    },
+    {
+        "id": "21",
+        "sportId": "2",
+        "name": "USA"
+    },
+    {
+        "id": "22",
+        "sportId": "2",
+        "name": "France"
+    },
+    {
+        "id": "23",
+        "sportId": "2",
+        "name": "China"
+    },
+    {
+        "id": "24",
+        "sportId": "2",
+        "name": "Italy"
+    },
+    {
+        "id": "31",
+        "sportId": "3",
+        "name": "Poland"
+    },
+    {
+        "id": "32",
+        "sportId": "3",
+        "name": "England"
+    },
+    {
+        "id": "33",
+        "sportId": "3",
+        "name": "Sweden"
+    },
+    {
+        "id": "34",
+        "sportId": "3",
+        "name": "Danmark"
+    }
+]

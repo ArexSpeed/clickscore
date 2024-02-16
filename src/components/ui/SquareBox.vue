@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router';
-
-const { name, link } = defineProps(['name', 'link'])
+const { name } = defineProps(['name'])
 </script>
 
 <template>
-    <RouterLink :to="link" class="flex flex-col min-w-40 min-h-40 bg-dark-secondary rounded-lg shadow-xl">
+    <div class="flex flex-col rounded-lg shadow-xl min-w-24 min-h-24 bg-dark-secondary">
         <span>{{ name }}</span>
-    </RouterLink>
+    </div>
 </template>

@@ -2,7 +2,7 @@
 import BottomNav from './Nav/BottomNav.vue';
 </script>
 <template>
-    <main class="w-full h-auto min-h-screen bg-dark-primary text-white">
+    <main class="w-full h-screen min-h-screen text-white bg-dark-primary">
         <slot></slot>
         <BottomNav />
     </main>

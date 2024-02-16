@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+        "name": "Football",
+        "link": "/"
+    },
+    {
+        "id": "2",
+        "name": "Basketball",
+        "link": "/"
+    },
+    {
+        "id": "3",
+        "name": "Speedway",
+        "link": "/about"
+    },
+    {
+        "id": "4",
+        "name": "Volleyball",
+        "link": "/volley"
+    },
+    {
+        "id": "5",
+        "name": "Formula 1",
+        "link": "/"
+    }
+]

@@ -1,45 +1,58 @@
 <script setup lang="ts">
-import SquareBox from "@/components/ui/SquareBox.vue"
-const sports = [
-  {
-    id: "1",
-    name: "Football",
-    link: "/",
-  },
-  {
-    id: "2",
-    name: "Basketball",
-    link: "/",
+import { ref } from 'vue';
+import SquareBox from "@/components/ui/SquareBox.vue";
+import sports from "@/data/sports.json"
+import leagues from "@/data/leagues.json"
 
-  },
-  {
-    id: "3",
-    name: "Speedway",
-    link: "/about",
+type Leagues = {
+  id: string;
+  sportId: string;
+  name: string;
+}
 
-  },
-  {
-    id: "4",
-    name: "Volleyball",
-    link: "/volley",
+const selectedSport = ref<string>("");
+const selectedLeagues = ref<Leagues[]>([])
 
-  },
-  {
-    id: "5",
-    name: "Formula 1",
-    link: "/",
+const onSelectSport = (id: string) => {
+  console.log("onSelectSport");
+  selectedSport.value = id
+  filterLeague();
+}
 
+const filterLeague = () => {
+  const filter = leagues.filter((league) => league.sportId === selectedSport.value);
+  if (filter) {
+    selectedLeagues.value = filter;
   }
-]
+}
+
 </script>
 
 <template>
-  <div class="text-2xl">Choose your sport</div>
+  <section class="flex flex-col gap-2 p-2">
+    <div class="text-2xl">Choose your sport</div>
 
-  <div class="grid grid-cols-2 gap-4 p-2 justify-center items-center">
-    <div v-for="sport in sports">
-      <SquareBox :key="sport.id" :link="sport.link" :name="sport.name" />
+    <div class="flex flex-row flex-wrap items-center justify-start gap-4">
+      <div v-for="sport in sports">
+        <SquareBox :key="sport.id" :name="sport.name" @click="onSelectSport(sport.id)" />
+      </div>
     </div>
+  </section>
+  <section v-if="selectedSport" class="flex flex-col gap-2 p-2">
+    <div class="flex flex-row items-center w-full gap-2">
+      <span class="whitespace-nowrap">Select option</span>
+      <select id="competitionKind" class="bg-dark-secondary shadow-lg text-sm rounded-lg max-w-[300px] block w-full p-2">
+        <option selected value="league">League</option>
+        <option value="cup">Cup</option>
+        <option value="one">One match</option>
+      </select>
+    </div>
+    <div class="text-2xl">Choose your league</div>
 
-  </div>
+    <div class="flex flex-row flex-wrap items-center justify-start gap-4">
+      <div v-for="league in selectedLeagues">
+        <SquareBox :key="league.id" :name="league.name" />
+      </div>
+    </div>
+  </section>
 </template>
