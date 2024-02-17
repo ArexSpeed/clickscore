@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import SquareBox from "@/components/ui/SquareBox.vue";
 import sports from "@/data/sports.json"
 import leagues from "@/data/leagues.json"
+import { useRouter } from 'vue-router';
 
 type Leagues = {
   id: string;
@@ -10,6 +11,7 @@ type Leagues = {
   name: string;
 }
 
+const router = useRouter();
 const selectedSport = ref<string>("");
 const selectedLeagues = ref<Leagues[]>([])
 
@@ -24,6 +26,11 @@ const filterLeague = () => {
   if (filter) {
     selectedLeagues.value = filter;
   }
+}
+
+const goToLeague = () => {
+  //router.push(`/${selectedSport}/${league}`);
+  router.push(`/settings`);
 }
 
 </script>
@@ -51,7 +58,7 @@ const filterLeague = () => {
 
     <div class="flex flex-row flex-wrap items-center justify-start gap-4">
       <div v-for="league in selectedLeagues">
-        <SquareBox :key="league.id" :name="league.name" />
+        <SquareBox :key="league.id" :name="league.name" @click="goToLeague" />
       </div>
     </div>
   </section>

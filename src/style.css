@@ -9,3 +9,7 @@
 .bg-dark-secondary {
     background: linear-gradient(90deg, #4D535D 0%, #373648 100%);
 }
+
+.bg-gradient-green {
+    background: linear-gradient(180deg, #63E536 0%, #1EAD24 100%);
+}
