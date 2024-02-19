@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BackButton from '@/components/BackButton.vue';
 import TeamSkillsBox from '@/components/ui/TeamSkillsBox.vue';
 import { useRouter } from 'vue-router';
 
@@ -116,6 +117,7 @@ const onStart = () => {
 
 <template>
     <section class="flex flex-col gap-2 p-2">
+        <BackButton />
         <input type="text" :value="name"
             class="w-full text-2xl font-semibold bg-transparent outline-none focus:text-blue-200" />
 
