@@ -111,7 +111,7 @@ const teams = [
 ]
 
 const onStart = () => {
-    router.push(`/start`);
+    router.push(`/game`);
 }
 </script>
 
