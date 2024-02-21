@@ -3,11 +3,18 @@ import BackButton from '@/components/BackButton.vue';
 import TeamSkillsBox from '@/components/ui/TeamSkillsBox.vue';
 import { useRouter } from 'vue-router';
 import { useSimulatorStore } from '@/stores/simulator';
+import { createSchedule } from '@/utils/createSchedule';
+import { createStanding } from '@/utils/createStanding';
+import type { Schedule } from '@/types';
 
 const router = useRouter();
 const simulator = useSimulatorStore();
 
 const onStart = () => {
+    const newSchedule: Schedule[] = createSchedule(simulator.teams);
+    simulator.onCreateSchedule(newSchedule);
+    const newStanding = createStanding(simulator.teams);
+    simulator.onCreateStanding(newStanding);
     router.push(`/game`);
 }
 console.log(simulator.teams);
@@ -32,7 +39,7 @@ const onChangeLeagueName = (e: Event) => {
         </div>
         <div class="flex flex-row items-center justify-center">
             <button class="p-4 font-semibold text-black rounded-full bg-gradient-green" @click="onStart">
-                <svg class="w-6 h-6" data-slot="icon" fill="black" stroke-width="1.5" stroke="currentColor"
+                <svg class="w-6 h-6" data-slot="icon" fill="currentColor" stroke-width="1.5" stroke="currentColor"
                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z">

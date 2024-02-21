@@ -1,15 +1,16 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import type { Team } from '@/types'
+import { type Team, type Schedule, type Standing, type StandingResult } from '@/types'
 
 export const useSimulatorStore = defineStore('simulator', () => {
   const leagueName = ref('')
   const teams = ref<Team[]>([])
+  const schedule = ref<Schedule[]>([])
+  const standing = ref<Standing[]>([])
   function onLeagueName(name: string) {
     leagueName.value = name
   }
   function onSelectTeams(selectedTeams: Team[]) {
-    console.log('onSelect', selectedTeams)
     teams.value = selectedTeams
   }
   function onChangeTeamName(id: number, name: string) {
@@ -17,10 +18,64 @@ export const useSimulatorStore = defineStore('simulator', () => {
     teams.value[teamId].name = name
   }
   function onChangeTeamSkill(id: number, skill: number, skillKey: 'att' | 'mid' | 'def') {
-    console.log('onChange', id, skill, skillKey)
     const teamId = teams.value.findIndex((team) => team.id === id)
     teams.value[teamId][skillKey] = skill
   }
+  function onCreateSchedule(newSchedule: Schedule[]) {
+    schedule.value = newSchedule
+  }
+  function onCreateStanding(newStanding: Standing[]) {
+    standing.value = newStanding
+  }
+  function onUpdateSchedule(
+    round: number,
+    gameId: string,
+    score_host: number,
+    score_guest: number
+  ) {
+    const scheduleId = schedule.value.findIndex((sc) => sc.round === round)
+    const gameIdx = schedule.value[scheduleId].games.findIndex((game) => game.id === gameId)
+    schedule.value[scheduleId].games[gameIdx].guestScore = score_guest
+    schedule.value[scheduleId].games[gameIdx].hostScore = score_host
+    schedule.value[scheduleId].games[gameIdx].isPlayed = true
+  }
+  function onUpdateStandings(
+    hostName: string,
+    guestName: string,
+    hostResults: StandingResult,
+    guestResults: StandingResult
+  ) {
+    const hostTeamId = standing.value.findIndex((team) => team.name === hostName)
+    standing.value[hostTeamId].games += hostResults.games
+    standing.value[hostTeamId].win += hostResults.win
+    standing.value[hostTeamId].draw += hostResults.draw
+    standing.value[hostTeamId].loses += hostResults.loses
+    standing.value[hostTeamId].goalPlus += hostResults.goalPlus
+    standing.value[hostTeamId].goalMinus += hostResults.goalMinus
+    standing.value[hostTeamId].points += hostResults.points
 
-  return { leagueName, teams, onLeagueName, onSelectTeams, onChangeTeamName, onChangeTeamSkill }
+    const guestTeamId = standing.value.findIndex((team) => team.name === guestName)
+    standing.value[guestTeamId].games += guestResults.games
+    standing.value[guestTeamId].win += guestResults.win
+    standing.value[guestTeamId].draw += guestResults.draw
+    standing.value[guestTeamId].loses += guestResults.loses
+    standing.value[guestTeamId].goalPlus += guestResults.goalPlus
+    standing.value[guestTeamId].goalMinus += guestResults.goalMinus
+    standing.value[guestTeamId].points += guestResults.points
+  }
+
+  return {
+    leagueName,
+    teams,
+    schedule,
+    standing,
+    onLeagueName,
+    onSelectTeams,
+    onChangeTeamName,
+    onChangeTeamSkill,
+    onCreateSchedule,
+    onCreateStanding,
+    onUpdateSchedule,
+    onUpdateStandings
+  }
 })

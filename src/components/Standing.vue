@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import PlayButton from './ui/PlayButton.vue';
+import { useSimulatorStore } from '@/stores/simulator';
 
-const isPlayed = ref(false);
+const simulator = useSimulatorStore();
 
-const onPlay = () => {
-    isPlayed.value = true;
-}
 </script>
 
 <template>
@@ -44,296 +40,36 @@ const onPlay = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-gray-800 border-b border-gray-700">
+                <tr v-for="team, index in simulator.standing" :key="team.name" class="bg-gray-800 border-b border-gray-700">
                     <td class="p-1 text-gray-500">
-                        1
+                        {{ index + 1 }}
                     </td>
                     <td class="p-1 text-gray-100">
-                        Manchester United
+                        {{ team.name }}
                     </td>
                     <td class="p-1 text-gray-300">
-                        15
+                        {{ team.games }}
                     </td>
                     <td class="p-1 text-gray-300">
-                        1
+                        {{ team.win }}
                     </td>
                     <td class="p-1 text-gray-300">
-                        10
+                        {{ team.draw }}
                     </td>
                     <td class="p-1 text-gray-300">
-                        10
+                        {{ team.loses }}
                     </td>
                     <td class="p-1 text-gray-300">
-                        88
+                        {{ team.goalPlus }}
                     </td>
                     <td class="p-1 text-gray-300">
-                        96
+                        {{ team.goalPlus }}
                     </td>
                     <td class="p-1 font-semibold text-white">
-                        38
+                        {{ team.points }}
                     </td>
                 </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
-                <tr class="bg-gray-800 border-b border-gray-700">
-                    <td class="p-1 text-gray-500">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-100">
-                        Manchester United
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        15
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        1
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        10
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        88
-                    </td>
-                    <td class="p-1 text-gray-300">
-                        96
-                    </td>
-                    <td class="p-1 font-semibold text-white">
-                        38
-                    </td>
-                </tr>
+
 
             </tbody>
         </table>
