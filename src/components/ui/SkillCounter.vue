@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { useSimulatorStore } from '@/stores/simulator';
 
-const { skill } = defineProps(['skill']);
-let skil = ref<number>(skill)
+let { skill, teamId, skillName } = defineProps(['skill', 'teamId', 'skillName']);
+
+const simulator = useSimulatorStore();
+
 
 const onMinus = () => {
-    skil.value--;
+    simulator.onChangeTeamSkill(teamId, skill--, skillName)
 }
 const onPlus = () => {
-    skil.value++;
-    console.log("onPlus", skill);
+    simulator.onChangeTeamSkill(teamId, skill++, skillName)
 }
-const onChangeSkill = (e: any) => {
-    skill.value = e.target.value
+const onChangeSkill = (e: Event) => {
+    const el = e.target as HTMLInputElement;
+    simulator.onChangeTeamSkill(teamId, +el.value, skillName)
 }
 
 </script>
@@ -20,7 +22,7 @@ const onChangeSkill = (e: any) => {
 <template>
     <div class="flex flex-row items-center justify-center gap-1">
         <button class="flex items-center justify-center w-4 h-4 bg-red-800 rounded-sm" @click="onMinus">-</button>
-        <input type="number" :value="skil" @change="" class="w-5 p-0 m-0 font-semibold bg-transparent" />
+        <input type="number" :value="skill" @change="onChangeSkill" class="w-5 p-0 m-0 font-semibold bg-transparent" />
         <button class="flex items-center justify-center w-4 h-4 bg-green-800 rounded-sm" @click="onPlus">+</button>
     </div>
 </template>

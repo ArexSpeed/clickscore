@@ -3,20 +3,17 @@ import { ref } from 'vue';
 import SquareBox from "@/components/ui/SquareBox.vue";
 import sports from "@/data/sports.json"
 import leagues from "@/data/leagues.json"
+import teams from "@/data/teams.json"
 import { useRouter } from 'vue-router';
-
-type Leagues = {
-    id: string;
-    sportId: string;
-    name: string;
-}
+import { useSimulatorStore } from '@/stores/simulator';
+import type { League } from "@/types"
 
 const router = useRouter();
 const selectedSport = ref<string>("");
-const selectedLeagues = ref<Leagues[]>([])
+const selectedLeagues = ref<League[]>([])
+const simulator = useSimulatorStore();
 
 const onSelectSport = (id: string) => {
-    console.log("onSelectSport");
     selectedSport.value = id
     filterLeague();
 }
@@ -28,10 +25,21 @@ const filterLeague = () => {
     }
 }
 
-const goToLeague = () => {
+const saveTeams = (leagueId: string) => {
+    const findTeams = teams.find((team) => team.leagueId === leagueId);
+    if (findTeams) {
+        simulator.onSelectTeams(findTeams.teams);
+    }
+}
+
+const goToLeague = (league: League) => {
     //router.push(`/${selectedSport}/${league}`);
+    simulator.onLeagueName(league.name);
+    saveTeams(league.id);
     router.push(`/settings`);
 }
+
+
 </script>
 
 <template>
@@ -58,7 +66,7 @@ const goToLeague = () => {
 
         <div class="flex flex-row flex-wrap items-center justify-start gap-4">
             <div v-for="league in selectedLeagues">
-                <SquareBox :key="league.id" :name="league.name" @click="goToLeague" />
+                <SquareBox :key="league.id" :name="league.name" @click="goToLeague(league)" />
             </div>
         </div>
     </section>
