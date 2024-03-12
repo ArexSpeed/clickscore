@@ -47,3 +47,9 @@ export type StandingResult = {
   goalMinus: number
   points: number
 }
+
+export type SavedTeams = {
+  id: number
+  leagueName: string
+  teams: Team[]
+}

@@ -39,6 +39,31 @@ const goToLeague = (league: League) => {
     router.push(`/settings`);
 }
 
+function getRandomInt(min: number, max: number) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+}
+
+const createNewLeague = () => {
+    simulator.onLeagueName("New League");
+    const newTeams = []
+    for (let i = 1; i < 11; i++) {
+        newTeams.push(
+            {
+                id: Math.floor(Math.random() * 10000000),
+                name: `Team ${i}`,
+                att: getRandomInt(70, 90),
+                mid: getRandomInt(70, 90),
+                def: getRandomInt(70, 90),
+            }
+        )
+    }
+    simulator.onSelectTeams(newTeams);
+    const leagueId = Math.floor(Math.random() * 10000000)
+    router.push(`/settings?newLeague=${leagueId}`);
+}
+
 
 </script>
 
@@ -68,6 +93,7 @@ const goToLeague = (league: League) => {
             <div v-for="league in selectedLeagues">
                 <SquareBox :key="league.id" :name="league.name" @click="goToLeague(league)" />
             </div>
+            <SquareBox name="Create new" @click="createNewLeague" />
         </div>
     </section>
 </template>
