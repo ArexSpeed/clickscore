@@ -2,7 +2,7 @@
 import PlayButton from './ui/PlayButton.vue';
 import { useSimulatorStore } from '@/stores/simulator';
 import { playMatch } from "@/utils/playMatch";
-import type { Team } from '@/types';
+import type { ScheduleGame, Team } from '@/types';
 
 const simulator = useSimulatorStore();
 
@@ -11,8 +11,14 @@ const onPlay = (host: Team, guest: Team, gameId: string, round: number) => {
     //isPlayed.value = true;
     const { score_host, score_guest, hostResults, guestResults } = playMatch(host, guest, gameId, round);
     console.log(score_host, score_guest);
+    console.log(hostResults, guestResults);
     simulator.onUpdateSchedule(round, gameId, score_host, score_guest);
     simulator.onUpdateStandings(host.name, guest.name, hostResults, guestResults);
+}
+
+const onPlayAll = (games: ScheduleGame[], round: number) => {
+    const nonPlayedGames = games.filter(game => !game.isPlayed)
+    nonPlayedGames.forEach((game) => onPlay(game.host, game.guest, game.id, round))
 }
 </script>
 
@@ -24,7 +30,7 @@ const onPlay = (host: Team, guest: Team, gameId: string, round: number) => {
                     <th scope="col" class="p-2" colSpan="3">
                         Round {{ round.round }}
                     </th>
-                    <th scope="col" class="p-2 text-right">
+                    <th scope="col" class="p-2 text-right cursor-pointer" @click="onPlayAll(round.games, round.round)">
                         Play all
                     </th>
                 </tr>

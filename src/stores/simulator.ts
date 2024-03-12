@@ -62,6 +62,10 @@ export const useSimulatorStore = defineStore('simulator', () => {
     standing.value[guestTeamId].goalPlus += guestResults.goalPlus
     standing.value[guestTeamId].goalMinus += guestResults.goalMinus
     standing.value[guestTeamId].points += guestResults.points
+
+    standing.value.sort(
+      (a, b) => b.points - a.points || b.goalPlus - a.goalPlus || a.goalMinus - b.goalMinus
+    )
   }
 
   return {
