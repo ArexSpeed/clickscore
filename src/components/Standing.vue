@@ -7,7 +7,7 @@ const simulator = useSimulatorStore();
 
 <template>
     <div class="relative w-full p-2 overflow-x-auto shadow-md sm:rounded-lg">
-        <div class="lg:w-1/2 lg:fixed">
+        <div class="lg:fixed lg:w-[calc(50%-16px)] lg:h-[calc(100%-200px)] h-full overflow-y-auto no-scrollbar">
             <table class="w-full p-2 text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -76,5 +76,6 @@ const simulator = useSimulatorStore();
                 </tbody>
             </table>
         </div>
+
     </div>
 </template>
