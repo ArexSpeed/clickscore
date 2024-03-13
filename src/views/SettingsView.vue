@@ -3,7 +3,7 @@ import BackButton from '@/components/BackButton.vue';
 import TeamSkillsBox from '@/components/ui/TeamSkillsBox.vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useSimulatorStore } from '@/stores/simulator';
-import { createSchedule } from '@/utils/createSchedule';
+import { generateSchedule } from '@/utils/generateSchedule';
 import { createStanding } from '@/utils/createStanding';
 import type { Schedule } from '@/types';
 import useSavedTeams from '@/composables/useSavedTeams';
@@ -17,7 +17,7 @@ const teamsQty = [4, 6, 8, 10, 12, 14, 16, 18, 20]
 const { teamsRef: savedTeams, saveNewTeams } = useSavedTeams()
 
 const onStart = () => {
-    const newSchedule: Schedule[] = createSchedule(simulator.teams);
+    const newSchedule: Schedule[] = generateSchedule(simulator.teams);
     simulator.onCreateSchedule(newSchedule);
     const newStanding = createStanding(simulator.teams);
     simulator.onCreateStanding(newStanding);
@@ -133,4 +133,4 @@ const saveTeamsToStorage = () => {
         </div>
     </section>
 </template>
-  
+  @/utils/generateSchedule
