@@ -19,12 +19,12 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="flex flex-col gap-2 p-2">
+    <section class="relative flex flex-col gap-2 p-2">
         <BackButton />
         <h2 class="w-full text-2xl font-semibold bg-transparent outline-none focus:text-blue-200">
             {{ name }}
         </h2>
-        <div class="flex items-center justify-center w-full lg:hidden">
+        <div class="sticky top-0 flex items-center justify-center w-full bg-red-400 lg:hidden">
 
             <ToggleButton tab1="Schedule" tab2="Standing" />
         </div>

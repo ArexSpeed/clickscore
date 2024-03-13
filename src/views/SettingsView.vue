@@ -133,4 +133,3 @@ const saveTeamsToStorage = () => {
         </div>
     </section>
 </template>
-  @/utils/generateSchedule
