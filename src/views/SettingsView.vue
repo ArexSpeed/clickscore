@@ -86,6 +86,7 @@ const saveTeamsToStorage = () => {
     <section class="flex flex-col gap-2 p-2">
         <BackButton />
         <div v-if="route.query.newLeague">
+
             <div class="flex flex-row items-center w-full gap-2">
                 <span class="whitespace-nowrap">Teams quantity </span>
                 <select id="teamsQuantity" @change="onChangeTeamsQuantity"
@@ -102,9 +103,18 @@ const saveTeamsToStorage = () => {
                 </select>
             </div>
         </div>
+        <label>League name:</label>
         <input type="text" v-model="simulator.leagueName" @change="onChangeLeagueName"
-            class="w-full text-2xl font-semibold bg-transparent outline-none focus:text-blue-200" />
+            class="w-full p-2 text-xl font-semibold bg-gray-800 rounded-lg outline-none focus:text-blue-200" />
 
+        <div class="flex flex-row items-center justify-between text-xs text-gray-400">
+            <span class="px-2">Team name</span>
+            <div class="flex flex-row items-center justify-center gap-4">
+                <span class="px-5">Att</span>
+                <span class="px-5">Mid</span>
+                <span class="px-5">Def</span>
+            </div>
+        </div>
         <div class="flex flex-col items-center justify-start w-full gap-2">
             <div v-for="team in simulator.teams" class="w-full">
                 <TeamSkillsBox :team="team" />

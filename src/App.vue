@@ -5,12 +5,7 @@ import Layout from './components/Layout.vue';
 
 <template>
   <Layout>
-    <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </header>
+
 
     <RouterView />
   </Layout>
