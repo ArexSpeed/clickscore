@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BackButton from '@/components/BackButton.vue';
 import TeamSkillsBox from '@/components/ui/TeamSkillsBox.vue';
+import Header from '@/components/Headers/Header.vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useSimulatorStore } from '@/stores/simulator';
 import { generateSchedule } from '@/utils/generateSchedule';
@@ -59,6 +59,10 @@ const onChangeTeamsData = (e: Event) => {
     simulator.onSelectTeams(newTeams);
 }
 
+const onSave = () => {
+    console.log("save on settings");
+}
+
 const saveTeamsToStorage = () => {
     if (route.query.newLeague) {
         saveNewTeams({
@@ -84,7 +88,7 @@ const saveTeamsToStorage = () => {
 
 <template>
     <section class="flex flex-col gap-2 p-2">
-        <BackButton />
+        <Header :title="simulator.selectedSport" :onSave="onSave" />
         <div v-if="route.query.newLeague">
 
             <div class="flex flex-row items-center w-full gap-2">

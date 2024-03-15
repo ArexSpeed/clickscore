@@ -13,8 +13,9 @@ const selectedSport = ref<string>("");
 const selectedLeagues = ref<League[]>([])
 const simulator = useSimulatorStore();
 
-const onSelectSport = (id: string) => {
+const onSelectSport = (id: string, name: string) => {
     selectedSport.value = id
+    simulator.onSelectSport(name);
     filterLeague();
 }
 
@@ -73,7 +74,7 @@ const createNewLeague = () => {
 
         <div class="flex flex-row flex-wrap items-center justify-start gap-4">
             <div v-for="sport in sports">
-                <SquareBox :key="sport.id" :name="sport.name" @click="onSelectSport(sport.id)" />
+                <SquareBox :key="sport.id" :name="sport.name" @click="onSelectSport(sport.id, sport.name)" />
             </div>
         </div>
     </section>

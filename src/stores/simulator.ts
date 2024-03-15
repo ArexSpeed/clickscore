@@ -5,10 +5,14 @@ import { type Team, type Schedule, type Standing, type StandingResult } from '@/
 export const useSimulatorStore = defineStore('simulator', () => {
   const leagueName = ref('')
   const teams = ref<Team[]>([])
+  const selectedSport = ref('')
   const schedule = ref<Schedule[]>([])
   const standing = ref<Standing[]>([])
   function onLeagueName(name: string) {
     leagueName.value = name
+  }
+  function onSelectSport(name: string) {
+    selectedSport.value = name
   }
   function onSelectTeams(selectedTeams: Team[]) {
     teams.value = selectedTeams
@@ -70,10 +74,12 @@ export const useSimulatorStore = defineStore('simulator', () => {
 
   return {
     leagueName,
+    selectedSport,
     teams,
     schedule,
     standing,
     onLeagueName,
+    onSelectSport,
     onSelectTeams,
     onChangeTeamName,
     onChangeTeamSkill,

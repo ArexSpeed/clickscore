@@ -2,11 +2,10 @@
 import { useRouter } from 'vue-router';
 import { useTabsStore } from '@/stores/tabs';
 import { onMounted, ref, onBeforeUnmount } from 'vue';
-import BackButton from '@/components/BackButton.vue';
+import Header from '@/components/Headers/Header.vue';
 import ToggleButton from '@/components/ui/ToggleButton.vue';
 import Schedule from '@/components/Schedule.vue';
 import Standing from '@/components/Standing.vue';
-import SaveButton from '@/components/ui/SaveButton.vue';
 
 const stickyToggleButton = ref<HTMLElement | null>(null);
 
@@ -16,7 +15,7 @@ const router = useRouter();
 const name = "Premier League"
 
 const onSave = () => {
-    console.log("onSave");
+    console.log("onSave game");
 }
 
 const handleScroll = () => {
@@ -44,15 +43,7 @@ onBeforeUnmount(() => {
 
 <template>
     <section class="relative flex flex-col gap-2 p-2">
-        <div class="flex flex-row items-center w-full gap-4">
-
-            <BackButton />
-
-            <h2 class="w-full text-2xl font-semibold bg-transparent outline-none focus:text-blue-200">
-                {{ name }}
-            </h2>
-            <SaveButton @click="onSave" />
-        </div>
+        <Header :title="name" :onSave="onSave" />
         <div class="sticky-toggle-button lg:hidden" ref="stickyToggleButton">
             <div class="flex items-center justify-center w-full">
 
