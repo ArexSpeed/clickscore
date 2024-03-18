@@ -9,12 +9,30 @@ import type { Schedule } from '@/types';
 import useSavedTeams from '@/composables/useSavedTeams';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+import sportSkills from '@/data/sportSkills.json';
+import { ref, onMounted } from 'vue';
 
 const router = useRouter();
 const route = useRoute();
 const simulator = useSimulatorStore();
 const teamsQty = [4, 6, 8, 10, 12, 14, 16, 18, 20]
+const skillTitle = ref({
+    skillA: '',
+    skillB: '',
+    skillC: ''
+})
 const { teamsRef: savedTeams, saveNewTeams } = useSavedTeams()
+
+const setSkillTitle = () => {
+    const findSkill = sportSkills.find((skill) => skill.sportName === simulator.selectedSport)
+    if (findSkill) {
+        skillTitle.value = {
+            skillA: findSkill.skillA,
+            skillB: findSkill.skillB,
+            skillC: findSkill.skillC
+        }
+    }
+}
 
 const onStart = () => {
     const newSchedule: Schedule[] = generateSchedule(simulator.teams);
@@ -84,6 +102,10 @@ const saveTeamsToStorage = () => {
         "dangerouslyHTMLString": true
     })
 }
+
+onMounted(() => {
+    setSkillTitle();
+})
 </script>
 
 <template>
@@ -114,9 +136,9 @@ const saveTeamsToStorage = () => {
         <div class="flex flex-row items-center justify-between text-xs text-gray-400">
             <span class="px-2">Team name</span>
             <div class="flex flex-row items-center justify-center gap-4">
-                <span class="px-5">Att</span>
-                <span class="px-5">Mid</span>
-                <span class="px-5">Def</span>
+                <span class="px-5">{{ skillTitle.skillA }}</span>
+                <span class="px-5">{{ skillTitle.skillB }}</span>
+                <span class="px-5">{{ skillTitle.skillC }}</span>
             </div>
         </div>
         <div class="flex flex-col items-center justify-start w-full gap-2">

@@ -11,7 +11,7 @@ const onPlay = (host: Team, guest: Team, gameId: string, round: number) => {
     console.log("r", round);
     //isPlayed.value = true;
 
-    const { score_host, score_guest, hostResults, guestResults } = playMatchBasketball(host, guest);
+    const { score_host, score_guest, hostResults, guestResults } = playMatch(host, guest, gameId, round);
     console.log(score_host, score_guest);
     console.log(hostResults, guestResults);
     simulator.onUpdateSchedule(round, gameId, score_host, score_guest);
@@ -41,7 +41,7 @@ const onPlayAll = (games: ScheduleGame[], round: number) => {
                                 @click="onPlayAll(round.games, round.round)">PLAY
                                 ALL</button>
                             <DisclosureButton class="">
-                                <svg class="w-4 h-4" :class="open ? 'rotate-180 transform' : ''" data-slot="icon"
+                                <svg class="w-4 h-4" :class="!open ? 'rotate-180 transform' : ''" data-slot="icon"
                                     fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                     aria-hidden="true" stroke-width="2" stroke="currentColor">
                                     <path clip-rule="evenodd" fill-rule="evenodd"

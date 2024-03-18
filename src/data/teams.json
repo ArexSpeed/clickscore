@@ -436,5 +436,137 @@
                 "def": 72
             }
         ]
+    },
+    {
+        "leagueId": "14",
+        "leagueName": "Germany",
+        "teams": [
+            {
+                "id": 51,
+                "name": "Bayern Munich",
+                "att": 89,
+                "mid": 84,
+                "def": 85
+            },
+            {
+                "id": 52,
+                "name": "Borussia Dortmund",
+                "att": 87,
+                "mid": 82,
+                "def": 82
+            },
+            {
+                "id": 53,
+                "name": "RB Leipzig",
+                "att": 85,
+                "mid": 81,
+                "def": 80
+            },
+            {
+                "id": 54,
+                "name": "Bayer Leverkusen",
+                "att": 84,
+                "mid": 80,
+                "def": 80
+            },
+            {
+                "id": 55,
+                "name": "Borussia Mönchengladbach",
+                "att": 83,
+                "mid": 80,
+                "def": 79
+            },
+            {
+                "id": 56,
+                "name": "Wolfsburg",
+                "att": 80,
+                "mid": 79,
+                "def": 78
+            },
+            {
+                "id": 57,
+                "name": "Eintracht Frankfurt",
+                "att": 80,
+                "mid": 78,
+                "def": 78
+            },
+            {
+                "id": 58,
+                "name": "Union Berlin",
+                "att": 79,
+                "mid": 78,
+                "def": 77
+            },
+            {
+                "id": 59,
+                "name": "Hertha BSC",
+                "att": 78,
+                "mid": 78,
+                "def": 77
+            },
+            {
+                "id": 60,
+                "name": "Stuttgart",
+                "att": 78,
+                "mid": 77,
+                "def": 76
+            },
+            {
+                "id": 61,
+                "name": "Augsburg",
+                "att": 77,
+                "mid": 77,
+                "def": 76
+            },
+            {
+                "id": 62,
+                "name": "Freiburg",
+                "att": 77,
+                "mid": 76,
+                "def": 76
+            },
+            {
+                "id": 63,
+                "name": "Mainz",
+                "att": 76,
+                "mid": 76,
+                "def": 75
+            },
+            {
+                "id": 64,
+                "name": "Arminia Bielefeld",
+                "att": 76,
+                "mid": 75,
+                "def": 75
+            },
+            {
+                "id": 65,
+                "name": "Cologne",
+                "att": 75,
+                "mid": 75,
+                "def": 74
+            },
+            {
+                "id": 66,
+                "name": "Werder Bremen",
+                "att": 75,
+                "mid": 74,
+                "def": 74
+            },
+            {
+                "id": 67,
+                "name": "Greuther Fürth",
+                "att": 74,
+                "mid": 74,
+                "def": 73
+            },
+            {
+                "id": 68,
+                "name": "Bochum",
+                "att": 73,
+                "mid": 73,
+                "def": 72
+            }
+        ]
     }
 ]

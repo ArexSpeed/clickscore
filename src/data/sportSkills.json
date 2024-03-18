@@ -1,0 +1,37 @@
+[
+    {
+        "sportId": "1",
+        "sportName": "Football",
+        "skillA": "Att",
+        "skillB": "Mid",
+        "skillC": "Def"
+    },
+    {
+        "sportId": "2",
+        "sportName": "Basketball",
+        "skillA": "Att",
+        "skillB": "Mid",
+        "skillC": "Def"
+    },
+    {
+        "sportId": "3",
+        "sportName": "Speedway",
+        "skillA": "Lead",
+        "skillB": "2Line",
+        "skillC": "Jun"
+    },
+    {
+        "sportId": "4",
+        "sportName": "Volleyball",
+        "skillA": "Att",
+        "skillB": "TW",
+        "skillC": "Def"
+    },
+    {
+        "sportId": "5",
+        "sportName": "Formula 1",
+        "skillA": "Att",
+        "skillB": "Mid",
+        "skillC": "Def"
+    }
+]
