@@ -21,7 +21,7 @@ const onStart = () => {
     simulator.onCreateSchedule(newSchedule);
     const newStanding = createStanding(simulator.teams);
     simulator.onCreateStanding(newStanding);
-    router.push(`/game`);
+    router.push(`/simulator/game`);
 }
 
 const onChangeLeagueName = (e: Event) => {

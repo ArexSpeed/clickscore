@@ -37,7 +37,7 @@ const goToLeague = (league: League) => {
     //router.push(`/${selectedSport}/${league}`);
     simulator.onLeagueName(league.name);
     saveTeams(league.id);
-    router.push(`/settings`);
+    router.push(`/simulator/settings`);
 }
 
 function getRandomInt(min: number, max: number) {
@@ -62,7 +62,7 @@ const createNewLeague = () => {
     }
     simulator.onSelectTeams(newTeams);
     const leagueId = Math.floor(Math.random() * 10000000)
-    router.push(`/settings?newLeague=${leagueId}`);
+    router.push(`/simulator/settings?newLeague=${leagueId}`);
 }
 
 
