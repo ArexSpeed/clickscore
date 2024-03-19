@@ -15,7 +15,7 @@ import { ref, onMounted } from 'vue';
 const router = useRouter();
 const route = useRoute();
 const simulator = useSimulatorStore();
-const teamsQty = [4, 6, 8, 10, 12, 14, 16, 18, 20]
+const teamsQty = ref([4, 6, 8, 10, 12, 14, 16, 18, 20])
 const skillTitle = ref({
     skillA: '',
     skillB: '',
@@ -55,7 +55,7 @@ function getRandomInt(min: number, max: number) {
 
 const onChangeTeamsQuantity = (e: Event) => {
     const quantity = e.target as HTMLSelectElement;
-    const newTeams = []
+    const newTeams = [];
     for (let i = 1; i <= +quantity.value; i++) {
         newTeams.push(
             {
@@ -65,7 +65,7 @@ const onChangeTeamsQuantity = (e: Event) => {
                 mid: getRandomInt(70, 90),
                 def: getRandomInt(70, 90),
             }
-        )
+        );
     }
     simulator.onSelectTeams(newTeams);
 }
@@ -142,7 +142,7 @@ onMounted(() => {
             </div>
         </div>
         <div class="flex flex-col items-center justify-start w-full gap-2">
-            <div v-for="team in simulator.teams" class="w-full">
+            <div v-for="team in simulator.teams" :key="team.id" class="w-full">
                 <TeamSkillsBox :team="team" />
             </div>
         </div>

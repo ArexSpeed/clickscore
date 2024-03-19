@@ -15,15 +15,17 @@ export const useSimulatorStore = defineStore('simulator', () => {
     selectedSport.value = name
   }
   function onSelectTeams(selectedTeams: Team[]) {
-    teams.value = selectedTeams
+    teams.value = computed(() => selectedTeams).value
   }
   function onChangeTeamName(id: number, name: string) {
     const teamId = teams.value.findIndex((team) => team.id === id)
     teams.value[teamId].name = name
   }
   function onChangeTeamSkill(id: number, skill: number, skillKey: 'att' | 'mid' | 'def') {
-    const teamId = teams.value.findIndex((team) => team.id === id)
-    teams.value[teamId][skillKey] = skill
+    const teamId = computed(() => teams.value.findIndex((team) => team.id === id)).value
+    if (teamId !== -1) {
+      teams.value[teamId][skillKey] = skill
+    }
   }
   function onCreateSchedule(newSchedule: Schedule[]) {
     schedule.value = newSchedule
