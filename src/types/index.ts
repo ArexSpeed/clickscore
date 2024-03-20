@@ -1,9 +1,9 @@
 export type Team = {
-  id: number
+  id: string
   name: string
-  def: number
-  mid: number
-  att: number
+  skillA: number
+  skillB: number
+  skillC: number
 }
 
 export type League = {

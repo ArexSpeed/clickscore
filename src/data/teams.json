@@ -1,571 +1,1324 @@
 [
     {
         "leagueId": "11",
+        "sport": "Football",
         "leagueName": "England",
         "teams": [
             {
-                "id": 1,
+                "id": "1235233",
+                "name": "Manchester City",
+                "skillA": 87,
+                "skillB": 88,
+                "skillC": 84
+            },
+            {
+                "id": "2356432",
                 "name": "Liverpool",
-                "att": 87,
-                "mid": 83,
-                "def": 85
+                "skillA": 86,
+                "skillB": 85,
+                "skillC": 86
             },
             {
-                "id": 2,
-                "name": "ManCity",
-                "att": 87,
-                "mid": 87,
-                "def": 83
-            },
-            {
-                "id": 3,
-                "name": "Leicester",
-                "att": 79,
-                "mid": 79,
-                "def": 80
-            },
-            {
-                "id": 4,
+                "id": "4378498",
                 "name": "Chelsea",
-                "att": 80,
-                "mid": 83,
-                "def": 81
+                "skillA": 85,
+                "skillB": 84,
+                "skillC": 84
             },
             {
-                "id": 5,
-                "name": "ManUnited",
-                "att": 83,
-                "mid": 80,
-                "def": 80
+                "id": "5892341",
+                "name": "Manchester United",
+                "skillA": 84,
+                "skillB": 82,
+                "skillC": 83
             },
             {
-                "id": 6,
-                "name": "Wolves",
-                "att": 79,
-                "mid": 79,
-                "def": 77
-            },
-            {
-                "id": 7,
-                "name": "Spurs",
-                "att": 86,
-                "mid": 82,
-                "def": 82
-            },
-            {
-                "id": 8,
+                "id": "6783492",
                 "name": "Arsenal",
-                "att": 84,
-                "mid": 82,
-                "def": 78
+                "skillA": 87,
+                "skillB": 85,
+                "skillC": 84
             },
             {
-                "id": 9,
+                "id": "7459832",
+                "name": "Tottenham Hotspur",
+                "skillA": 82,
+                "skillB": 80,
+                "skillC": 81
+            },
+            {
+                "id": "8347983",
+                "name": "West Ham United",
+                "skillA": 81,
+                "skillB": 79,
+                "skillC": 79
+            },
+            {
+                "id": "9213498",
+                "name": "Leicester City",
+                "skillA": 81,
+                "skillB": 79,
+                "skillC": 78
+            },
+            {
+                "id": "1023948",
                 "name": "Everton",
-                "att": 80,
-                "mid": 78,
-                "def": 79
+                "skillA": 80,
+                "skillB": 78,
+                "skillC": 78
             },
             {
-                "id": 10,
-                "name": "WestHam",
-                "att": 82,
-                "mid": 78,
-                "def": 72
+                "id": "1123094",
+                "name": "Brentford",
+                "skillA": 78,
+                "skillB": 76,
+                "skillC": 76
             },
             {
-                "id": 11,
-                "name": "Watford",
-                "att": 76,
-                "mid": 78,
-                "def": 75
-            },
-            {
-                "id": 12,
-                "name": "Newcastle",
-                "att": 76,
-                "mid": 77,
-                "def": 77
-            },
-            {
-                "id": 13,
-                "name": "Crystal",
-                "att": 73,
-                "mid": 77,
-                "def": 76
-            },
-            {
-                "id": 14,
-                "name": "Bournemouth",
-                "att": 78,
-                "mid": 76,
-                "def": 76
-            },
-            {
-                "id": 15,
-                "name": "Burnley",
-                "att": 77,
-                "mid": 76,
-                "def": 76
-            },
-            {
-                "id": 16,
-                "name": "AstonVilla",
-                "att": 77,
-                "mid": 75,
-                "def": 75
-            },
-            {
-                "id": 17,
+                "id": "1234456",
                 "name": "Brighton",
-                "att": 76,
-                "mid": 77,
-                "def": 76
+                "skillA": 77,
+                "skillB": 78,
+                "skillC": 77
             },
             {
-                "id": 18,
+                "id": "1345672",
+                "name": "Crystal Palace",
+                "skillA": 77,
+                "skillB": 76,
+                "skillC": 76
+            },
+            {
+                "id": "1456789",
+                "name": "Wolverhampton Wanderers",
+                "skillA": 76,
+                "skillB": 76,
+                "skillC": 75
+            },
+            {
+                "id": "1567892",
                 "name": "Southampton",
-                "att": 75,
-                "mid": 76,
-                "def": 76
+                "skillA": 76,
+                "skillB": 75,
+                "skillC": 75
             },
             {
-                "id": 19,
-                "name": "SheffieldUtd",
-                "att": 73,
-                "mid": 76,
-                "def": 75
+                "id": "1678923",
+                "name": "Bournemouth",
+                "skillA": 75,
+                "skillB": 75,
+                "skillC": 74
             },
             {
-                "id": 20,
-                "name": "Norwich",
-                "att": 76,
-                "mid": 74,
-                "def": 72
+                "id": "1789234",
+                "name": "Aston Villa",
+                "skillA": 80,
+                "skillB": 78,
+                "skillC": 80
+            },
+            {
+                "id": "1892345",
+                "name": "Newcastle United",
+                "skillA": 80,
+                "skillB": 80,
+                "skillC": 78
+            },
+            {
+                "id": "1983456",
+                "name": "Burnley",
+                "skillA": 73,
+                "skillB": 73,
+                "skillC": 72
+            },
+            {
+                "id": "2084567",
+                "name": "Luton Town",
+                "skillA": 72,
+                "skillB": 72,
+                "skillC": 71
+            },
+            {
+                "id": "2185678",
+                "name": "Sheffield United",
+                "skillA": 71,
+                "skillB": 71,
+                "skillC": 70
             }
         ]
     },
     {
         "leagueId": "12",
+        "sport": "Football",
         "leagueName": "Spain",
         "teams": [
             {
-                "id": 21,
+                "id": "1235233",
+                "name": "Real Madrid",
+                "skillA": 88,
+                "skillB": 86,
+                "skillC": 87
+            },
+            {
+                "id": "2356432",
                 "name": "Barcelona",
-                "att": 88,
-                "mid": 85,
-                "def": 85
+                "skillA": 87,
+                "skillB": 85,
+                "skillC": 86
             },
             {
-                "id": 22,
-                "name": "Real Madryt",
-                "att": 85,
-                "mid": 87,
-                "def": 85
+                "id": "4378498",
+                "name": "Atletico Madrid",
+                "skillA": 85,
+                "skillB": 84,
+                "skillC": 84
             },
             {
-                "id": 23,
-                "name": "Atletico",
-                "att": 81,
-                "mid": 83,
-                "def": 82
-            },
-            {
-                "id": 24,
-                "name": "Valencia",
-                "att": 81,
-                "mid": 81,
-                "def": 81
-            },
-            {
-                "id": 25,
-                "name": "Real Betis",
-                "att": 81,
-                "mid": 81,
-                "def": 78
-            },
-            {
-                "id": 26,
+                "id": "5892341",
                 "name": "Sevilla",
-                "att": 79,
-                "mid": 81,
-                "def": 80
+                "skillA": 84,
+                "skillB": 83,
+                "skillC": 83
             },
             {
-                "id": 27,
+                "id": "6783492",
+                "name": "Real Betis",
+                "skillA": 82,
+                "skillB": 82,
+                "skillC": 82
+            },
+            {
+                "id": "7459832",
+                "name": "Valencia",
+                "skillA": 81,
+                "skillB": 81,
+                "skillC": 81
+            },
+            {
+                "id": "8347983",
                 "name": "Real Sociedad",
-                "att": 81,
-                "mid": 80,
-                "def": 78
+                "skillA": 81,
+                "skillB": 80,
+                "skillC": 80
             },
             {
-                "id": 28,
+                "id": "9213498",
                 "name": "Villarreal",
-                "att": 80,
-                "mid": 79,
-                "def": 78
+                "skillA": 80,
+                "skillB": 80,
+                "skillC": 80
             },
             {
-                "id": 29,
+                "id": "1023948",
                 "name": "Athletic Bilbao",
-                "att": 79,
-                "mid": 79,
-                "def": 80
+                "skillA": 79,
+                "skillB": 79,
+                "skillC": 79
             },
             {
-                "id": 30,
-                "name": "Getafe",
-                "att": 80,
-                "mid": 77,
-                "def": 78
-            },
-            {
-                "id": 31,
+                "id": "1123094",
                 "name": "Celta Vigo",
-                "att": 79,
-                "mid": 77,
-                "def": 76
+                "skillA": 78,
+                "skillB": 78,
+                "skillC": 78
             },
             {
-                "id": 32,
-                "name": "Eibar",
-                "att": 78,
-                "mid": 78,
-                "def": 75
+                "id": "1234456",
+                "name": "Getafe",
+                "skillA": 77,
+                "skillB": 77,
+                "skillC": 77
             },
             {
-                "id": 33,
-                "name": "Levante",
-                "att": 77,
-                "mid": 78,
-                "def": 76
-            },
-            {
-                "id": 34,
-                "name": "Real Valladolid",
-                "att": 76,
-                "mid": 76,
-                "def": 73
-            },
-            {
-                "id": 35,
-                "name": "Deportivo Alaves",
-                "att": 76,
-                "mid": 75,
-                "def": 76
-            },
-            {
-                "id": 36,
+                "id": "1345672",
                 "name": "Granada",
-                "att": 76,
-                "mid": 74,
-                "def": 75
+                "skillA": 76,
+                "skillB": 76,
+                "skillC": 76
             },
             {
-                "id": 37,
-                "name": "Leganes",
-                "att": 75,
-                "mid": 75,
-                "def": 75
-            },
-            {
-                "id": 38,
+                "id": "1456789",
                 "name": "Osasuna",
-                "att": 76,
-                "mid": 74,
-                "def": 73
+                "skillA": 75,
+                "skillB": 75,
+                "skillC": 75
             },
             {
-                "id": 39,
+                "id": "1567892",
+                "name": "Rayo Vallecano",
+                "skillA": 74,
+                "skillB": 74,
+                "skillC": 74
+            },
+            {
+                "id": "1678923",
+                "name": "Girona",
+                "skillA": 73,
+                "skillB": 73,
+                "skillC": 73
+            },
+            {
+                "id": "1789234",
+                "name": "Alaves",
+                "skillA": 72,
+                "skillB": 72,
+                "skillC": 72
+            },
+            {
+                "id": "1892345",
+                "name": "Cadiz",
+                "skillA": 71,
+                "skillB": 71,
+                "skillC": 71
+            },
+            {
+                "id": "1983456",
                 "name": "Mallorca",
-                "att": 76,
-                "mid": 73,
-                "def": 72
+                "skillA": 70,
+                "skillB": 70,
+                "skillC": 70
             },
             {
-                "id": 40,
-                "name": "Espanyol",
-                "att": 76,
-                "mid": 73,
-                "def": 72
+                "id": "2084567",
+                "name": "Las Palmas",
+                "skillA": 69,
+                "skillB": 69,
+                "skillC": 69
+            },
+            {
+                "id": "2185678",
+                "name": "Almeria",
+                "skillA": 68,
+                "skillB": 68,
+                "skillC": 68
             }
         ]
     },
     {
         "leagueId": "13",
+        "sport": "Football",
         "leagueName": "Italy",
         "teams": [
             {
-                "id": 41,
+                "id": "1235233",
                 "name": "Juventus",
-                "att": 89,
-                "mid": 84,
-                "def": 85
+                "skillA": 87,
+                "skillB": 85,
+                "skillC": 86
             },
             {
-                "id": 42,
+                "id": "2356432",
+                "name": "Inter Milan",
+                "skillA": 86,
+                "skillB": 84,
+                "skillC": 85
+            },
+            {
+                "id": "4378498",
+                "name": "AC Milan",
+                "skillA": 85,
+                "skillB": 83,
+                "skillC": 84
+            },
+            {
+                "id": "5892341",
                 "name": "Napoli",
-                "att": 84,
-                "mid": 81,
-                "def": 81
+                "skillA": 84,
+                "skillB": 82,
+                "skillC": 83
             },
             {
-                "id": 43,
-                "name": "Inter",
-                "att": 83,
-                "mid": 80,
-                "def": 86
-            },
-            {
-                "id": 44,
-                "name": "Lazio",
-                "att": 82,
-                "mid": 81,
-                "def": 80
-            },
-            {
-                "id": 45,
-                "name": "Milan",
-                "att": 85,
-                "mid": 78,
-                "def": 79
-            },
-            {
-                "id": 46,
+                "id": "6783492",
                 "name": "Roma",
-                "att": 84,
-                "mid": 78,
-                "def": 78
+                "skillA": 83,
+                "skillB": 81,
+                "skillC": 82
             },
             {
-                "id": 47,
+                "id": "7459832",
                 "name": "Atalanta",
-                "att": 82,
-                "mid": 79,
-                "def": 77
+                "skillA": 82,
+                "skillB": 80,
+                "skillC": 81
             },
             {
-                "id": 48,
-                "name": "Torino",
-                "att": 79,
-                "mid": 76,
-                "def": 78
+                "id": "8347983",
+                "name": "Lazio",
+                "skillA": 81,
+                "skillB": 79,
+                "skillC": 80
             },
             {
-                "id": 49,
-                "name": "Cagliari",
-                "att": 78,
-                "mid": 76,
-                "def": 73
-            },
-            {
-                "id": 50,
-                "name": "Fiorentina",
-                "att": 76,
-                "mid": 74,
-                "def": 75
-            },
-            {
-                "id": 51,
-                "name": "Genoa",
-                "att": 75,
-                "mid": 74,
-                "def": 75
-            },
-            {
-                "id": 52,
-                "name": "Bologna",
-                "att": 74,
-                "mid": 76,
-                "def": 74
-            },
-            {
-                "id": 53,
-                "name": "Sampdoria",
-                "att": 78,
-                "mid": 74,
-                "def": 73
-            },
-            {
-                "id": 54,
+                "id": "9213498",
                 "name": "Sassuolo",
-                "att": 76,
-                "mid": 74,
-                "def": 71
+                "skillA": 80,
+                "skillB": 78,
+                "skillC": 79
             },
             {
-                "id": 55,
+                "id": "1023948",
+                "name": "Fiorentina",
+                "skillA": 79,
+                "skillB": 77,
+                "skillC": 78
+            },
+            {
+                "id": "1123094",
+                "name": "Torino",
+                "skillA": 78,
+                "skillB": 76,
+                "skillC": 77
+            },
+            {
+                "id": "1234456",
                 "name": "Udinese",
-                "att": 75,
-                "mid": 75,
-                "def": 74
+                "skillA": 77,
+                "skillB": 75,
+                "skillC": 76
             },
             {
-                "id": 56,
-                "name": "Parma",
-                "att": 74,
-                "mid": 74,
-                "def": 72
+                "id": "1345672",
+                "name": "Cagliari",
+                "skillA": 76,
+                "skillB": 74,
+                "skillC": 75
             },
             {
-                "id": 57,
-                "name": "Hellas",
-                "att": 73,
-                "mid": 75,
-                "def": 73
+                "id": "1456789",
+                "name": "Hellas Verona",
+                "skillA": 75,
+                "skillB": 73,
+                "skillC": 74
             },
             {
-                "id": 58,
-                "name": "Spal",
-                "att": 75,
-                "mid": 72,
-                "def": 72
+                "id": "1567892",
+                "name": "Genoa",
+                "skillA": 74,
+                "skillB": 72,
+                "skillC": 73
             },
             {
-                "id": 59,
-                "name": "Brescia",
-                "att": 75,
-                "mid": 73,
-                "def": 70
+                "id": "1678923",
+                "name": "Bologna",
+                "skillA": 73,
+                "skillB": 71,
+                "skillC": 72
             },
             {
-                "id": 60,
+                "id": "1789234",
+                "name": "Empoli",
+                "skillA": 72,
+                "skillB": 70,
+                "skillC": 71
+            },
+            {
+                "id": "1892345",
                 "name": "Lecce",
-                "att": 72,
-                "mid": 71,
-                "def": 72
+                "skillA": 71,
+                "skillB": 69,
+                "skillC": 70
+            },
+            {
+                "id": "1983456",
+                "name": "Monza",
+                "skillA": 70,
+                "skillB": 68,
+                "skillC": 69
+            },
+            {
+                "id": "2084567",
+                "name": "Salernitana",
+                "skillA": 69,
+                "skillB": 67,
+                "skillC": 68
+            },
+            {
+                "id": "20845677",
+                "name": "Frosinone",
+                "skillA": 68,
+                "skillB": 67,
+                "skillC": 66
             }
         ]
     },
     {
         "leagueId": "14",
+        "sport": "Football",
         "leagueName": "Germany",
         "teams": [
             {
-                "id": 51,
+                "id": "1235233",
                 "name": "Bayern Munich",
-                "att": 89,
-                "mid": 84,
-                "def": 85
+                "skillA": 87,
+                "skillB": 86,
+                "skillC": 87
             },
             {
-                "id": 52,
-                "name": "Borussia Dortmund",
-                "att": 87,
-                "mid": 82,
-                "def": 82
-            },
-            {
-                "id": 53,
+                "id": "2356432",
                 "name": "RB Leipzig",
-                "att": 85,
-                "mid": 81,
-                "def": 80
+                "skillA": 86,
+                "skillB": 85,
+                "skillC": 85
             },
             {
-                "id": 54,
+                "id": "4378498",
+                "name": "Borussia Dortmund",
+                "skillA": 85,
+                "skillB": 84,
+                "skillC": 84
+            },
+            {
+                "id": "5892341",
                 "name": "Bayer Leverkusen",
-                "att": 84,
-                "mid": 80,
-                "def": 80
+                "skillA": 84,
+                "skillB": 83,
+                "skillC": 83
             },
             {
-                "id": 55,
-                "name": "Borussia Mönchengladbach",
-                "att": 83,
-                "mid": 80,
-                "def": 79
-            },
-            {
-                "id": 56,
+                "id": "6783492",
                 "name": "Wolfsburg",
-                "att": 80,
-                "mid": 79,
-                "def": 78
+                "skillA": 83,
+                "skillB": 82,
+                "skillC": 82
             },
             {
-                "id": 57,
+                "id": "7459832",
                 "name": "Eintracht Frankfurt",
-                "att": 80,
-                "mid": 78,
-                "def": 78
+                "skillA": 82,
+                "skillB": 81,
+                "skillC": 81
             },
             {
-                "id": 58,
+                "id": "8347983",
                 "name": "Union Berlin",
-                "att": 79,
-                "mid": 78,
-                "def": 77
+                "skillA": 81,
+                "skillB": 80,
+                "skillC": 80
             },
             {
-                "id": 59,
-                "name": "Hertha BSC",
-                "att": 78,
-                "mid": 78,
-                "def": 77
-            },
-            {
-                "id": 60,
+                "id": "1023948",
                 "name": "Stuttgart",
-                "att": 78,
-                "mid": 77,
-                "def": 76
+                "skillA": 79,
+                "skillB": 78,
+                "skillC": 78
             },
             {
-                "id": 61,
+                "id": "1123094",
                 "name": "Augsburg",
-                "att": 77,
-                "mid": 77,
-                "def": 76
+                "skillA": 78,
+                "skillB": 77,
+                "skillC": 77
             },
             {
-                "id": 62,
+                "id": "1234456",
                 "name": "Freiburg",
-                "att": 77,
-                "mid": 76,
-                "def": 76
+                "skillA": 77,
+                "skillB": 76,
+                "skillC": 76
             },
             {
-                "id": 63,
+                "id": "1345672",
                 "name": "Mainz",
-                "att": 76,
-                "mid": 76,
-                "def": 75
+                "skillA": 76,
+                "skillB": 75,
+                "skillC": 75
             },
             {
-                "id": 64,
-                "name": "Arminia Bielefeld",
-                "att": 76,
-                "mid": 75,
-                "def": 75
+                "id": "1456789",
+                "name": "Hoffenheim",
+                "skillA": 75,
+                "skillB": 74,
+                "skillC": 74
             },
             {
-                "id": 65,
-                "name": "Cologne",
-                "att": 75,
-                "mid": 75,
-                "def": 74
+                "id": "1567892",
+                "name": "FC Koln",
+                "skillA": 74,
+                "skillB": 73,
+                "skillC": 73
             },
             {
-                "id": 66,
+                "id": "1678923",
                 "name": "Werder Bremen",
-                "att": 75,
-                "mid": 74,
-                "def": 74
+                "skillA": 73,
+                "skillB": 72,
+                "skillC": 72
             },
             {
-                "id": 67,
-                "name": "Greuther Fürth",
-                "att": 74,
-                "mid": 74,
-                "def": 73
+                "id": "9213498",
+                "name": "Heidenheim",
+                "skillA": 71,
+                "skillB": 73,
+                "skillC": 71
             },
             {
-                "id": 68,
+                "id": "1789234",
                 "name": "Bochum",
-                "att": 73,
-                "mid": 73,
-                "def": 72
+                "skillA": 72,
+                "skillB": 71,
+                "skillC": 71
+            },
+            {
+                "id": "1892345",
+                "name": "Moenchengladbach",
+                "skillA": 71,
+                "skillB": 70,
+                "skillC": 70
+            },
+            {
+                "id": "18923451",
+                "name": "Darmstadt",
+                "skillA": 71,
+                "skillB": 70,
+                "skillC": 70
+            }
+        ]
+    },
+    {
+        "leagueId": "15",
+        "sport": "Football",
+        "leagueName": "Poland",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Legia Warszawa",
+                "skillA": 75,
+                "skillB": 74,
+                "skillC": 73
+            },
+            {
+                "id": "2356432",
+                "name": "Lech Poznan",
+                "skillA": 74,
+                "skillB": 73,
+                "skillC": 72
+            },
+            {
+                "id": "4378498",
+                "name": "Gornik Zabrze",
+                "skillA": 73,
+                "skillB": 72,
+                "skillC": 71
+            },
+            {
+                "id": "5892341",
+                "name": "Rakow Czestochowa",
+                "skillA": 72,
+                "skillB": 71,
+                "skillC": 70
+            },
+            {
+                "id": "6783492",
+                "name": "Jagiellonia Bialystok",
+                "skillA": 71,
+                "skillB": 70,
+                "skillC": 69
+            },
+            {
+                "id": "7459832",
+                "name": "Cracovia",
+                "skillA": 70,
+                "skillB": 69,
+                "skillC": 68
+            },
+            {
+                "id": "8347983",
+                "name": "Pogon Szczecin",
+                "skillA": 69,
+                "skillB": 68,
+                "skillC": 67
+            },
+            {
+                "id": "9213498",
+                "name": "Zaglebie Lubin",
+                "skillA": 68,
+                "skillB": 67,
+                "skillC": 66
+            },
+            {
+                "id": "1023948",
+                "name": "Slask Wroclaw",
+                "skillA": 67,
+                "skillB": 66,
+                "skillC": 65
+            },
+            {
+                "id": "1123094",
+                "name": "Wisla Plock",
+                "skillA": 66,
+                "skillB": 65,
+                "skillC": 64
+            },
+            {
+                "id": "1234456",
+                "name": "Piast Gliwice",
+                "skillA": 65,
+                "skillB": 64,
+                "skillC": 63
+            },
+            {
+                "id": "1345672",
+                "name": "Korona Kielce",
+                "skillA": 64,
+                "skillB": 63,
+                "skillC": 62
+            },
+            {
+                "id": "1456789",
+                "name": "Stal Mielec",
+                "skillA": 63,
+                "skillB": 62,
+                "skillC": 61
+            },
+            {
+                "id": "1567892",
+                "name": "Radomiak Radom",
+                "skillA": 62,
+                "skillB": 61,
+                "skillC": 60
+            },
+            {
+                "id": "1678923",
+                "name": "Puszcza Niepolomice",
+                "skillA": 61,
+                "skillB": 60,
+                "skillC": 59
+            },
+            {
+                "id": "1789234",
+                "name": "Warta Poznan",
+                "skillA": 60,
+                "skillB": 59,
+                "skillC": 58
+            },
+            {
+                "id": "1892345",
+                "name": "LKS Lodz",
+                "skillA": 59,
+                "skillB": 58,
+                "skillC": 57
+            },
+            {
+                "id": "18923451",
+                "name": "Ruch Chorzow",
+                "skillA": 58,
+                "skillB": 59,
+                "skillC": 57
+            }
+        ]
+    },
+    {
+        "leagueId": "21",
+        "sport": "Basketball",
+        "leagueName": "USA West",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Los Angeles Lakers",
+                "skillA": 95,
+                "skillB": 94,
+                "skillC": 93
+            },
+            {
+                "id": "2356432",
+                "name": "Golden State Warriors",
+                "skillA": 94,
+                "skillB": 93,
+                "skillC": 92
+            },
+            {
+                "id": "4378498",
+                "name": "Los Angeles Clippers",
+                "skillA": 93,
+                "skillB": 92,
+                "skillC": 91
+            },
+            {
+                "id": "5892341",
+                "name": "Phoenix Suns",
+                "skillA": 92,
+                "skillB": 91,
+                "skillC": 90
+            },
+            {
+                "id": "6783492",
+                "name": "Denver Nuggets",
+                "skillA": 91,
+                "skillB": 90,
+                "skillC": 89
+            },
+            {
+                "id": "7459832",
+                "name": "Portland Trail Blazers",
+                "skillA": 90,
+                "skillB": 89,
+                "skillC": 88
+            },
+            {
+                "id": "8347983",
+                "name": "Utah Jazz",
+                "skillA": 89,
+                "skillB": 88,
+                "skillC": 87
+            },
+            {
+                "id": "9213498",
+                "name": "Sacramento Kings",
+                "skillA": 88,
+                "skillB": 87,
+                "skillC": 86
+            },
+            {
+                "id": "1023948",
+                "name": "Dallas Mavericks",
+                "skillA": 87,
+                "skillB": 86,
+                "skillC": 85
+            },
+            {
+                "id": "1123094",
+                "name": "Houston Rockets",
+                "skillA": 86,
+                "skillB": 85,
+                "skillC": 84
+            },
+            {
+                "id": "1234456",
+                "name": "Minnesota Timberwolves",
+                "skillA": 85,
+                "skillB": 84,
+                "skillC": 83
+            },
+            {
+                "id": "1345672",
+                "name": "Memphis Grizzlies",
+                "skillA": 84,
+                "skillB": 83,
+                "skillC": 82
+            },
+            {
+                "id": "1456789",
+                "name": "New Orleans Pelicans",
+                "skillA": 83,
+                "skillB": 82,
+                "skillC": 81
+            },
+            {
+                "id": "1567892",
+                "name": "Oklahoma City Thunder",
+                "skillA": 82,
+                "skillB": 81,
+                "skillC": 80
+            },
+            {
+                "id": "1678923",
+                "name": "San Antonio Spurs",
+                "skillA": 81,
+                "skillB": 80,
+                "skillC": 79
+            }
+        ]
+    },
+    {
+        "leagueId": "22",
+        "sport": "Basketball",
+        "leagueName": "USA East",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Brooklyn Nets",
+                "skillA": 95,
+                "skillB": 94,
+                "skillC": 93
+            },
+            {
+                "id": "2356432",
+                "name": "Philadelphia 76ers",
+                "skillA": 94,
+                "skillB": 93,
+                "skillC": 92
+            },
+            {
+                "id": "4378498",
+                "name": "Boston Celtics",
+                "skillA": 93,
+                "skillB": 92,
+                "skillC": 91
+            },
+            {
+                "id": "5892341",
+                "name": "Milwaukee Bucks",
+                "skillA": 92,
+                "skillB": 91,
+                "skillC": 90
+            },
+            {
+                "id": "6783492",
+                "name": "Miami Heat",
+                "skillA": 91,
+                "skillB": 90,
+                "skillC": 89
+            },
+            {
+                "id": "7459832",
+                "name": "Atlanta Hawks",
+                "skillA": 90,
+                "skillB": 89,
+                "skillC": 88
+            },
+            {
+                "id": "8347983",
+                "name": "New York Knicks",
+                "skillA": 89,
+                "skillB": 88,
+                "skillC": 87
+            },
+            {
+                "id": "9213498",
+                "name": "Chicago Bulls",
+                "skillA": 88,
+                "skillB": 87,
+                "skillC": 86
+            },
+            {
+                "id": "1023948",
+                "name": "Indiana Pacers",
+                "skillA": 87,
+                "skillB": 86,
+                "skillC": 85
+            },
+            {
+                "id": "1123094",
+                "name": "Washington Wizards",
+                "skillA": 86,
+                "skillB": 85,
+                "skillC": 84
+            },
+            {
+                "id": "1234456",
+                "name": "Charlotte Hornets",
+                "skillA": 85,
+                "skillB": 84,
+                "skillC": 83
+            },
+            {
+                "id": "1345672",
+                "name": "Toronto Raptors",
+                "skillA": 84,
+                "skillB": 83,
+                "skillC": 82
+            },
+            {
+                "id": "1456789",
+                "name": "Detroit Pistons",
+                "skillA": 83,
+                "skillB": 82,
+                "skillC": 81
+            },
+            {
+                "id": "1567892",
+                "name": "Cleveland Cavaliers",
+                "skillA": 82,
+                "skillB": 81,
+                "skillC": 80
+            },
+            {
+                "id": "1678923",
+                "name": "Orlando Magic",
+                "skillA": 81,
+                "skillB": 80,
+                "skillC": 79
+            }
+        ]
+    },
+    {
+        "leagueId": "23",
+        "sport": "Basketball",
+        "leagueName": "Euroleague",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Monaco",
+                "skillA": 90,
+                "skillB": 89,
+                "skillC": 88
+            },
+            {
+                "id": "2356432",
+                "name": "Real Madrid",
+                "skillA": 91,
+                "skillB": 92,
+                "skillC": 88
+            },
+            {
+                "id": "4378498",
+                "name": "FC Barcelona",
+                "skillA": 90,
+                "skillB": 87,
+                "skillC": 88
+            },
+            {
+                "id": "5892341",
+                "name": "Olympiacos Piraeus",
+                "skillA": 87,
+                "skillB": 86,
+                "skillC": 85
+            },
+            {
+                "id": "6783492",
+                "name": "Anadolu Efes Istanbul",
+                "skillA": 86,
+                "skillB": 85,
+                "skillC": 84
+            },
+            {
+                "id": "7459832",
+                "name": "Fenerbahce Istanbul",
+                "skillA": 85,
+                "skillB": 84,
+                "skillC": 83
+            },
+            {
+                "id": "8347983",
+                "name": "Panathinaikos Athens",
+                "skillA": 84,
+                "skillB": 83,
+                "skillC": 82
+            },
+            {
+                "id": "9213498",
+                "name": "Maccabi Tel Aviv",
+                "skillA": 83,
+                "skillB": 82,
+                "skillC": 81
+            },
+            {
+                "id": "1023948",
+                "name": "Zalgiris Kaunas",
+                "skillA": 82,
+                "skillB": 81,
+                "skillC": 80
+            },
+            {
+                "id": "1123094",
+                "name": "Milano",
+                "skillA": 81,
+                "skillB": 80,
+                "skillC": 79
+            },
+            {
+                "id": "1234456",
+                "name": "Crvena Zvezda",
+                "skillA": 80,
+                "skillB": 79,
+                "skillC": 78
+            },
+            {
+                "id": "1345672",
+                "name": "Valencia Basket",
+                "skillA": 79,
+                "skillB": 78,
+                "skillC": 77
+            },
+            {
+                "id": "1456789",
+                "name": "Bayern",
+                "skillA": 78,
+                "skillB": 77,
+                "skillC": 76
+            },
+            {
+                "id": "1567892",
+                "name": "Alba Berlin",
+                "skillA": 77,
+                "skillB": 76,
+                "skillC": 75
+            },
+            {
+                "id": "1678923",
+                "name": "Lyon-Villeurbanne",
+                "skillA": 76,
+                "skillB": 75,
+                "skillC": 74
+            },
+            {
+                "id": "67857463",
+                "name": "Partizan",
+                "skillA": 77,
+                "skillB": 75,
+                "skillC": 73
+            },
+            {
+                "id": "67857464",
+                "name": "Baskonia",
+                "skillA": 79,
+                "skillB": 76,
+                "skillC": 74
+            },
+            {
+                "id": "67857465",
+                "name": "Virtus Bologna",
+                "skillA": 76,
+                "skillB": 77,
+                "skillC": 79
+            }
+        ]
+    },
+    {
+        "leagueId": "24",
+        "sport": "Basketball",
+        "leagueName": "Spain",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Real Madrid",
+                "skillA": 85,
+                "skillB": 83,
+                "skillC": 82
+            },
+            {
+                "id": "2356432",
+                "name": "Unicaja",
+                "skillA": 84,
+                "skillB": 82,
+                "skillC": 81
+            },
+            {
+                "id": "4378498",
+                "name": "Barcelona",
+                "skillA": 82,
+                "skillB": 81,
+                "skillC": 80
+            },
+            {
+                "id": "5892341",
+                "name": "Murcia",
+                "skillA": 81,
+                "skillB": 80,
+                "skillC": 79
+            },
+            {
+                "id": "6783492",
+                "name": "Gran Canaria",
+                "skillA": 80,
+                "skillB": 79,
+                "skillC": 78
+            },
+            {
+                "id": "7459832",
+                "name": "Tenerife",
+                "skillA": 79,
+                "skillB": 78,
+                "skillC": 77
+            },
+            {
+                "id": "8347983",
+                "name": "Valencia",
+                "skillA": 78,
+                "skillB": 77,
+                "skillC": 76
+            },
+            {
+                "id": "9213498",
+                "name": "Baskonia",
+                "skillA": 77,
+                "skillB": 76,
+                "skillC": 75
+            },
+            {
+                "id": "1023948",
+                "name": "Manresa",
+                "skillA": 76,
+                "skillB": 75,
+                "skillC": 74
+            },
+            {
+                "id": "1123094",
+                "name": "Jouventut",
+                "skillA": 75,
+                "skillB": 74,
+                "skillC": 73
+            },
+            {
+                "id": "1234456",
+                "name": "Bilbao",
+                "skillA": 74,
+                "skillB": 73,
+                "skillC": 72
+            },
+            {
+                "id": "1345672",
+                "name": "Zaragoza",
+                "skillA": 73,
+                "skillB": 72,
+                "skillC": 71
+            },
+            {
+                "id": "1345672",
+                "name": "Basket Girona",
+                "skillA": 74,
+                "skillB": 72,
+                "skillC": 70
+            },
+            {
+                "id": "1456789",
+                "name": "MoraBanc Andorra",
+                "skillA": 72,
+                "skillB": 71,
+                "skillC": 70
+            },
+            {
+                "id": "1567892",
+                "name": "Granada",
+                "skillA": 71,
+                "skillB": 70,
+                "skillC": 69
+            },
+            {
+                "id": "1678923",
+                "name": "Breogan",
+                "skillA": 70,
+                "skillB": 69,
+                "skillC": 68
+            },
+            {
+                "id": "1789234",
+                "name": "Obradoiro",
+                "skillA": 69,
+                "skillB": 68,
+                "skillC": 67
+            },
+            {
+                "id": "1892345",
+                "name": "Palencia",
+                "skillA": 68,
+                "skillB": 67,
+                "skillC": 66
+            }
+        ]
+    },
+    {
+        "leagueId": "31",
+        "sport": "Speedway",
+        "leagueName": "Ekstraliga",
+        "teams": [
+            {
+                "id": "4378498",
+                "name": "Motor Lublin",
+                "skillA": 93,
+                "skillB": 92,
+                "skillC": 91
+            },
+            {
+                "id": "2356432",
+                "name": "Sparta Wroclaw",
+                "skillA": 91,
+                "skillB": 93,
+                "skillC": 90
+            },
+            {
+                "id": "2356432",
+                "name": "Czestochowa",
+                "skillA": 90,
+                "skillB": 89,
+                "skillC": 87
+            },
+            {
+                "id": "9213498",
+                "name": "Torun",
+                "skillA": 88,
+                "skillB": 87,
+                "skillC": 86
+            },
+            {
+                "id": "7459832",
+                "name": "Stal Gorzow",
+                "skillA": 90,
+                "skillB": 89,
+                "skillC": 88
+            },
+            {
+                "id": "1235233",
+                "name": "Unia Leszno",
+                "skillA": 88,
+                "skillB": 87,
+                "skillC": 92
+            },
+            {
+                "id": "6783492",
+                "name": "GKM Grudziadz",
+                "skillA": 87,
+                "skillB": 85,
+                "skillC": 88
+            },
+            {
+                "id": "1234456",
+                "name": "Zielona Gora",
+                "skillA": 86,
+                "skillB": 88,
+                "skillC": 84
+            }
+        ]
+    },
+    {
+        "leagueId": "32",
+        "sport": "Speedway",
+        "leagueName": "1 Liga",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Polonia Bydgoszcz",
+                "skillA": 80,
+                "skillB": 78,
+                "skillC": 76
+            },
+            {
+                "id": "2356432",
+                "name": "Rybnik",
+                "skillA": 78,
+                "skillB": 76,
+                "skillC": 74
+            },
+            {
+                "id": "4378498",
+                "name": "Wilki Krosno",
+                "skillA": 76,
+                "skillB": 74,
+                "skillC": 72
+            },
+            {
+                "id": "5892341",
+                "name": "Ostrovia",
+                "skillA": 74,
+                "skillB": 72,
+                "skillC": 70
+            },
+            {
+                "id": "6783492",
+                "name": "Rzeszow",
+                "skillA": 72,
+                "skillB": 70,
+                "skillC": 68
+            },
+            {
+                "id": "7459832",
+                "name": "Gdansk",
+                "skillA": 70,
+                "skillB": 68,
+                "skillC": 66
+            },
+            {
+                "id": "8347983",
+                "name": "Orzel Lodz",
+                "skillA": 72,
+                "skillB": 70,
+                "skillC": 69
+            },
+            {
+                "id": "9213498",
+                "name": "Poznan",
+                "skillA": 68,
+                "skillB": 68,
+                "skillC": 69
             }
         ]
     }

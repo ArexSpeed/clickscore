@@ -17,9 +17,9 @@ const onChangeTeamName = (e: Event) => {
         <input type="text" v-model="team.name" @change="onChangeTeamName"
             class="w-full font-semibold bg-transparent outline-none focus:text-blue-200" />
         <div class="flex flex-row items-center justify-center gap-3">
-            <SkillCounter :skill="team.att" :teamId="team.id" skillName="att" />
-            <SkillCounter :skill="team.mid" :teamId="team.id" skillName="mid" />
-            <SkillCounter :skill="team.def" :teamId="team.id" skillName="def" />
+            <SkillCounter :skill="team.skillA" :teamId="team.id" skillName="skillA" />
+            <SkillCounter :skill="team.skillB" :teamId="team.id" skillName="skillB" />
+            <SkillCounter :skill="team.skillC" :teamId="team.id" skillName="skillC" />
 
         </div>
     </div>

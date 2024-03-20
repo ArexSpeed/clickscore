@@ -20,34 +20,39 @@
         "name": "Germany"
     },
     {
+        "id": "15",
+        "sportId": "1",
+        "name": "Poland"
+    },
+    {
         "id": "21",
         "sportId": "2",
-        "name": "USA"
+        "name": "USA West"
     },
     {
         "id": "22",
         "sportId": "2",
-        "name": "France"
+        "name": "USA East"
     },
     {
         "id": "23",
         "sportId": "2",
-        "name": "China"
+        "name": "Euroleague"
     },
     {
         "id": "24",
         "sportId": "2",
-        "name": "Italy"
+        "name": "Spain"
     },
     {
         "id": "31",
         "sportId": "3",
-        "name": "Poland"
+        "name": "Ekstraliga"
     },
     {
         "id": "32",
         "sportId": "3",
-        "name": "England"
+        "name": "1 Liga"
     },
     {
         "id": "33",

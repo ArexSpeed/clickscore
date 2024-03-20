@@ -77,30 +77,4 @@ onBeforeUnmount(() => {
     backdrop-filter: blur(10px);
     z-index: 50;
 }
-
-.wrap {
-    overscroll-behavior: contain;
-}
-
-.headers {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-
-.scroller {
-    overflow: auto;
-}
-
-.track {
-    scroll-snap-align: start;
-}
-
-.heading {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
-
-/* https://uxdesign.cc/position-stuck-96c9f55d9526 */
 </style>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useSimulatorStore } from '@/stores/simulator';
-import { toRefs, ref } from 'vue';
+import { ref } from 'vue';
 
-const props = defineProps<{ teamId: number, skill: number, skillName: 'att' | 'mid' | 'def' }>();
+const props = defineProps<{ teamId: string, skill: number, skillName: 'skillA' | 'skillB' | 'skillC' }>();
 const simulator = useSimulatorStore();
 const teamId = ref(props.teamId);
 const skill = ref(props.skill);

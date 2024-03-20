@@ -17,11 +17,11 @@ export const useSimulatorStore = defineStore('simulator', () => {
   function onSelectTeams(selectedTeams: Team[]) {
     teams.value = computed(() => selectedTeams).value
   }
-  function onChangeTeamName(id: number, name: string) {
+  function onChangeTeamName(id: string, name: string) {
     const teamId = teams.value.findIndex((team) => team.id === id)
     teams.value[teamId].name = name
   }
-  function onChangeTeamSkill(id: number, skill: number, skillKey: 'att' | 'mid' | 'def') {
+  function onChangeTeamSkill(id: string, skill: number, skillKey: 'skillA' | 'skillB' | 'skillC') {
     const teamId = computed(() => teams.value.findIndex((team) => team.id === id)).value
     if (teamId !== -1) {
       teams.value[teamId][skillKey] = skill

@@ -59,11 +59,11 @@ const onChangeTeamsQuantity = (e: Event) => {
     for (let i = 1; i <= +quantity.value; i++) {
         newTeams.push(
             {
-                id: Math.floor(Math.random() * 10000000),
+                id: Math.floor(Math.random() * 10000000).toString(),
                 name: `Team ${i}`,
-                att: getRandomInt(70, 90),
-                mid: getRandomInt(70, 90),
-                def: getRandomInt(70, 90),
+                skillA: getRandomInt(70, 90),
+                skillB: getRandomInt(70, 90),
+                skillC: getRandomInt(70, 90),
             }
         );
     }
@@ -142,7 +142,8 @@ onMounted(() => {
             </div>
         </div>
         <div class="flex flex-col items-center justify-start w-full gap-2">
-            <div v-for="team in simulator.teams" :key="team.id" class="w-full">
+            <div v-for="team, index in simulator.teams" :key="team.id" class="flex flex-row items-center w-full">
+                <span class="w-5 text-sm text-center text-gray-500">{{ index + 1 }}</span>
                 <TeamSkillsBox :team="team" />
             </div>
         </div>

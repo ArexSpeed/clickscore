@@ -52,11 +52,11 @@ const createNewLeague = () => {
     for (let i = 1; i < 11; i++) {
         newTeams.push(
             {
-                id: Math.floor(Math.random() * 10000000),
+                id: Math.floor(Math.random() * 10000000).toString(),
                 name: `Team ${i}`,
-                att: getRandomInt(70, 90),
-                mid: getRandomInt(70, 90),
-                def: getRandomInt(70, 90),
+                skillA: getRandomInt(70, 90),
+                skillB: getRandomInt(70, 90),
+                skillC: getRandomInt(70, 90),
             }
         )
     }
