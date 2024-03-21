@@ -23,7 +23,7 @@ onMounted(() => {
         <div v-if="tabsStore.selectedTab === 'New'">
             <NewGameScreen />
         </div>
-        <div v-else>
+        <div v-else class="flex justify-center w-full">
             <SavedGamesScreen />
         </div>
     </section>
