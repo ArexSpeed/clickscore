@@ -1,10 +1,27 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import FootballIcon from './icons/FootballIcon.vue';
 import BasketballIcon from './icons/BasketballIcon.vue';
 import SpeedwayIcon from './icons/SpeedwayIcon.vue';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import type { SavedGame } from '@/types';
+import { useRouter } from 'vue-router';
+import { useSimulatorStore } from '@/stores/simulator';
 
-const { gameData } = defineProps(['gameData'])
+const props = defineProps<{ gameData: SavedGame }>()
+const gameData = ref(props.gameData)
+const router = useRouter()
+const simulator = useSimulatorStore()
+
+console.log(gameData);
+
+const goToGame = (game: SavedGame) => {
+    simulator.onSelectSport(game.sport)
+    simulator.onCreateSchedule(game.schedule)
+    simulator.onSelectTeams(game.teams)
+    simulator.setStandingsFromSavedGames(game.standing)
+    router.push(`/simulator/game?gameId=${game.gameId}`)
+}
 
 </script>
 
@@ -16,10 +33,10 @@ const { gameData } = defineProps(['gameData'])
             <SpeedwayIcon v-if="gameData.sport === 'Speedway'" class="w-8 h-8" />
             <div class="flex flex-col">
 
-                <span class="font-semibold">{{ gameData.name }}</span>
+                <button class="font-semibold" @click="goToGame(gameData)">{{ gameData.gameName }}</button>
                 <div class="flex flex-row items-center gap-2">
                     <span class="p-1 text-xs bg-blue-400 rounded-md text-gray-71">{{ gameData.option }}</span>
-                    <span class="text-xs text-gray-400">Last opened: {{ gameData.opened }}</span>
+                    <span class="text-xs text-gray-400">Last opened: {{ gameData.lastSaveDate }}</span>
                 </div>
             </div>
         </div>

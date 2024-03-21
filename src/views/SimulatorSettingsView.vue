@@ -39,7 +39,8 @@ const onStart = () => {
     simulator.onCreateSchedule(newSchedule);
     const newStanding = createStanding(simulator.teams);
     simulator.onCreateStanding(newStanding);
-    router.push(`/simulator/game`);
+    const gameId = Math.floor(Math.random() * 1000000);
+    router.push(`/simulator/game?gameId=${gameId}`);
 }
 
 const onChangeLeagueName = (e: Event) => {

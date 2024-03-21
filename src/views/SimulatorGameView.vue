@@ -1,21 +1,37 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { useTabsStore } from '@/stores/tabs';
 import { onMounted, ref, onBeforeUnmount } from 'vue';
 import Header from '@/components/Headers/Header.vue';
 import ToggleButton from '@/components/ui/ToggleButton.vue';
 import Schedule from '@/components/Schedule.vue';
 import Standing from '@/components/Standing.vue';
+import useSavedGames from '@/composables/useSavedGames';
+import { useSimulatorStore } from '@/stores/simulator';
 
 const stickyToggleButton = ref<HTMLElement | null>(null);
 
 const tabsStore = useTabsStore();
+const simulator = useSimulatorStore();
+const { gamesRef, saveNewGame } = useSavedGames()
 
 const router = useRouter();
-const name = "Premier League"
+const route = useRoute();
 
 const onSave = () => {
-    console.log("onSave game");
+    const newGame = {
+        ownerId: Math.floor(Math.random() * 100000).toString(),
+        gameId: route.query.gameId ? route.query.gameId.toString() : "123",
+        gameName: simulator.leagueName,
+        sport: simulator.selectedSport,
+        option: "league",
+        lastSaveDate: "12.02.2024",
+        teams: simulator.teams,
+        schedule: simulator.schedule,
+        standing: simulator.standing
+    }
+    saveNewGame(newGame)
+    console.log("New game saved")
 }
 
 const handleScroll = () => {
@@ -43,7 +59,7 @@ onBeforeUnmount(() => {
 
 <template>
     <section class="relative flex flex-col gap-2 p-2">
-        <Header :title="name" :onSave="onSave" />
+        <Header :title="simulator.leagueName" :onSave="onSave" />
         <div class="sticky-toggle-button lg:hidden" ref="stickyToggleButton">
             <div class="flex items-center justify-center w-full">
 

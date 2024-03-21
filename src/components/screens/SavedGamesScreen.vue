@@ -7,32 +7,35 @@ import BasketballIcon from '../icons/BasketballIcon.vue';
 import SpeedwayIcon from '../icons/SpeedwayIcon.vue';
 import VolleyballIcon from '../icons/VolleyballIcon.vue';
 import FormulaIcon from '../icons/FormulaIcon.vue';
+import useSavedGames from "@/composables/useSavedGames";
 
-const activeSportFilter = ref("All")
+const activeSportFilter = ref("All");
+const { gamesRef: savedGames } = useSavedGames();
+console.log("saved", savedGames.value);
 
-const savedGames = [
-    {
-        id: "12312424",
-        sport: "Football",
-        name: "Premier League",
-        option: "league",
-        opened: "12.02.2024"
-    },
-    {
-        id: "12312424232",
-        sport: "Basketball",
-        name: "NBA",
-        option: "cup",
-        opened: "14.02.2024"
-    },
-    {
-        id: "123121312",
-        sport: "Speedway",
-        name: "Ekstraliga sezon 2023",
-        option: "league",
-        opened: "10.02.2024"
-    }
-]
+// const savedGames = [
+//     {
+//         id: "12312424",
+//         sport: "Football",
+//         name: "Premier League",
+//         option: "league",
+//         opened: "12.02.2024"
+//     },
+//     {
+//         id: "12312424232",
+//         sport: "Basketball",
+//         name: "NBA",
+//         option: "cup",
+//         opened: "14.02.2024"
+//     },
+//     {
+//         id: "123121312",
+//         sport: "Speedway",
+//         name: "Ekstraliga sezon 2023",
+//         option: "league",
+//         opened: "10.02.2024"
+//     }
+// ]
 
 const changeSportFilter = (value: string) => {
     activeSportFilter.value = value;
@@ -78,8 +81,11 @@ const changeSportFilter = (value: string) => {
 
 
         </div>
-        <div class="flex flex-col w-full gap-2" v-for="game in savedGames" :key="game.id">
+        <div class="flex flex-col w-full gap-2" v-if="savedGames" v-for="game in savedGames" :key="game.gameId">
             <SavedGamesBox :gameData="game" />
+        </div>
+        <div v-else>
+            <p>You don't have saved games yet!</p>
         </div>
     </section>
 </template>

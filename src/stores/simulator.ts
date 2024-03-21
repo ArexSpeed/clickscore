@@ -73,6 +73,9 @@ export const useSimulatorStore = defineStore('simulator', () => {
       (a, b) => b.points - a.points || b.goalPlus - a.goalPlus || a.goalMinus - b.goalMinus
     )
   }
+  function setStandingsFromSavedGames(savedStanding: Standing[]) {
+    standing.value = savedStanding
+  }
 
   return {
     leagueName,
@@ -88,6 +91,7 @@ export const useSimulatorStore = defineStore('simulator', () => {
     onCreateSchedule,
     onCreateStanding,
     onUpdateSchedule,
-    onUpdateStandings
+    onUpdateStandings,
+    setStandingsFromSavedGames
   }
 })

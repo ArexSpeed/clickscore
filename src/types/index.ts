@@ -53,3 +53,15 @@ export type SavedTeams = {
   leagueName: string
   teams: Team[]
 }
+
+export type SavedGame = {
+  ownerId: string
+  gameId: string
+  gameName: string
+  sport: string
+  option: string
+  lastSaveDate: string
+  teams: Team[]
+  schedule: Schedule[]
+  standing: Standing[]
+}
