@@ -9,11 +9,17 @@ import VolleyballIcon from '../icons/VolleyballIcon.vue';
 import FormulaIcon from '../icons/FormulaIcon.vue';
 import useSavedGames from "@/composables/useSavedGames";
 import DeleteSavedBoxModal from '@/components/modals/DeleteSavedBoxModal.vue';
+import RenameSavedBoxModal from "../modals/RenameSavedBoxModal.vue";
 
 const activeSportFilter = ref("All");
-const { gamesRef: savedGames, removeGame } = useSavedGames();
+const { gamesRef: savedGames, removeGame, renameGame } = useSavedGames();
 const isOpenDeleteModal = ref(false)
+const isOpenRenameModal = ref(false)
 const gameToRemove = ref({
+    id: '',
+    name: '',
+})
+const gameToRename = ref({
     id: '',
     name: '',
 })
@@ -53,6 +59,12 @@ function closeModal() {
 function openModal() {
     isOpenDeleteModal.value = true
 }
+function closeRenameModal() {
+    isOpenRenameModal.value = false
+}
+function openRenameModal() {
+    isOpenRenameModal.value = true
+}
 
 const onDeleteOpenModal = (gameId: string, gameName: string) => {
     openModal()
@@ -67,6 +79,22 @@ const onDeleteGame = () => {
         name: ''
     }
     closeModal();
+}
+
+const onRenameOpenModal = (gameId: string, gameName: string) => {
+    openRenameModal()
+    gameToRename.value.id = gameId
+    gameToRename.value.name = gameName
+}
+
+const onRenameGame = (newName: string) => {
+    console.log("Rename", newName)
+    renameGame(gameToRename.value.id, newName)
+    gameToRename.value = {
+        id: '',
+        name: ''
+    }
+    closeRenameModal();
 }
 
 </script>
@@ -110,13 +138,15 @@ const onDeleteGame = () => {
 
         </div>
         <div class="flex flex-col w-full gap-2" v-if="savedGames" v-for="game in savedGames" :key="game.gameId">
-            <SavedGamesBox :gameData="game" @open-delete-modal="onDeleteOpenModal" />
+            <SavedGamesBox :gameData="game" @open-delete-modal="onDeleteOpenModal" @open-rename-modal="onRenameOpenModal" />
         </div>
         <div v-else>
             <p>You don't have saved games yet!</p>
         </div>
         <DeleteSavedBoxModal :isOpenDeleteModal="isOpenDeleteModal" :gameName="gameToRemove.name" @close-modal="closeModal"
             @delete-game="onDeleteGame" />
+        <RenameSavedBoxModal :isOpenRenameModal="isOpenRenameModal" :gameName="gameToRename.name"
+            @close-rename-modal="closeRenameModal" @rename-game="onRenameGame" />
 
     </section>
 </template>

@@ -2,20 +2,6 @@ import type { SavedGame } from '@/types'
 import { ref, onMounted } from 'vue'
 
 export default function useSavedGames() {
-  /*
-    needs:
-    {
-        ownerId: string,
-        gameId: string,
-        gameName: string,
-        sport: string,
-        option: string,
-        lastSaveDate: string,
-        teams: [],
-        schedule: [],
-        standings: [],
-    }
-    */
   const gamesRef = ref<SavedGame[]>([])
 
   function fetchGames() {
@@ -31,8 +17,15 @@ export default function useSavedGames() {
   }
 
   function saveNewGame(newGame: SavedGame) {
-    gamesRef.value.push(newGame)
-    localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
+    const existIndex = gamesRef.value.findIndex((games) => games.gameId === newGame.gameId)
+    if (existIndex !== -1) {
+      gamesRef.value[existIndex] = newGame
+      localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
+      return
+    } else {
+      gamesRef.value.push(newGame)
+      localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
+    }
   }
 
   function removeGame(gameId: string) {
@@ -41,7 +34,13 @@ export default function useSavedGames() {
     localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
   }
 
+  function renameGame(gameId: string, newName: string) {
+    const gameIndex = gamesRef.value.findIndex((games) => games.gameId === gameId)
+    gamesRef.value[gameIndex].gameName = newName
+    localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
+  }
+
   onMounted(() => fetchGames())
 
-  return { gamesRef, saveNewGame, removeGame }
+  return { gamesRef, saveNewGame, removeGame, renameGame }
 }

@@ -7,16 +7,19 @@ import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import type { SavedGame } from '@/types';
 import { useRouter } from 'vue-router';
 import { useSimulatorStore } from '@/stores/simulator';
-// import useSavedGames from "@/composables/useSavedGames";
+import PlayIcon from './icons/PlayIcon.vue';
+import EditIcon from './icons/EditIcon.vue';
+import DeleteIcon from './icons/DeleteIcon.vue';
 
 const props = defineProps<{ gameData: SavedGame }>();
-const emit = defineEmits(['open-delete-modal']);
+const emit = defineEmits(['open-delete-modal', 'open-rename-modal']);
 
 const gameData = ref(props.gameData)
 const router = useRouter()
 const simulator = useSimulatorStore()
 
 const goToGame = (game: SavedGame) => {
+    simulator.onLeagueName(game.gameName);
     simulator.onSelectSport(game.sport)
     simulator.onCreateSchedule(game.schedule)
     simulator.onSelectTeams(game.teams)
@@ -28,17 +31,21 @@ const openDeleteModal = () => {
     emit('open-delete-modal', gameData.value.gameId, gameData.value.gameName);
 }
 
+const openRenameModal = () => {
+    emit('open-rename-modal', gameData.value.gameId, gameData.value.gameName);
+}
+
 </script>
 
 <template>
     <div class="flex flex-row items-center justify-between w-full gap-2 p-2 rounded-lg bg-dark-secondary">
-        <div class="flex flex-row items-center gap-2">
+        <div @click="goToGame(gameData)" class="flex flex-row items-center gap-2 cursor-pointer">
             <FootballIcon v-if="gameData.sport === 'Football'" class="w-8 h-8" />
             <BasketballIcon v-if="gameData.sport === 'Basketball'" class="w-8 h-8" />
             <SpeedwayIcon v-if="gameData.sport === 'Speedway'" class="w-8 h-8" />
             <div class="flex flex-col">
 
-                <button class="font-semibold" @click="goToGame(gameData)">{{ gameData.gameName }}</button>
+                <span class="font-semibold">{{ gameData.gameName }}</span>
                 <div class="flex flex-row items-center gap-2">
                     <span class="p-1 text-xs bg-blue-400 rounded-md text-gray-71">{{ gameData.option }}</span>
                     <span class="text-xs text-gray-400">Last opened: {{ gameData.lastSaveDate }}</span>
@@ -66,11 +73,12 @@ const openDeleteModal = () => {
                         class="absolute right-0 z-30 w-auto h-auto mt-2 origin-top-right bg-gray-700 divide-y divide-gray-800 rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
                         <div class="px-1 py-1">
                             <MenuItem v-slot="{ active }">
+
                             <button :class="[
                                 active ? 'bg-blue-400 text-white' : 'text-gray-200',
                                 'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                            ]">
-
+                            ]" @click="goToGame(gameData)">
+                                <PlayIcon class="w-3 h-3 mr-2 text-white" />
                                 Open
                             </button>
                             </MenuItem>
@@ -78,8 +86,8 @@ const openDeleteModal = () => {
                             <button :class="[
                                 active ? 'bg-blue-400 text-white' : 'text-gray-200',
                                 'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                            ]">
-
+                            ]" @click="openRenameModal">
+                                <EditIcon class="w-3 h-3 mr-2 text-white" />
                                 Rename
                             </button>
                             </MenuItem>
@@ -88,6 +96,7 @@ const openDeleteModal = () => {
                                 active ? 'bg-blue-400 text-white' : 'text-gray-200',
                                 'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                             ]" @click="openDeleteModal">
+                                <DeleteIcon class="w-3 h-3 mr-2 text-white" />
 
                                 Delete
                             </button>
