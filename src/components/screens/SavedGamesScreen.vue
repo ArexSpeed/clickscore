@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import SavedGamesBox from '../SavedGamesBox.vue';
 import SearchBox from '../ui/SearchBox.vue';
 import FootballIcon from '../icons/FootballIcon.vue';
@@ -8,9 +8,15 @@ import SpeedwayIcon from '../icons/SpeedwayIcon.vue';
 import VolleyballIcon from '../icons/VolleyballIcon.vue';
 import FormulaIcon from '../icons/FormulaIcon.vue';
 import useSavedGames from "@/composables/useSavedGames";
+import DeleteSavedBoxModal from '@/components/modals/DeleteSavedBoxModal.vue';
 
 const activeSportFilter = ref("All");
-const { gamesRef: savedGames } = useSavedGames();
+const { gamesRef: savedGames, removeGame } = useSavedGames();
+const isOpenDeleteModal = ref(false)
+const gameToRemove = ref({
+    id: '',
+    name: '',
+})
 console.log("saved", savedGames.value);
 
 // const savedGames = [
@@ -39,6 +45,28 @@ console.log("saved", savedGames.value);
 
 const changeSportFilter = (value: string) => {
     activeSportFilter.value = value;
+}
+
+function closeModal() {
+    isOpenDeleteModal.value = false
+}
+function openModal() {
+    isOpenDeleteModal.value = true
+}
+
+const onDeleteOpenModal = (gameId: string, gameName: string) => {
+    openModal()
+    gameToRemove.value.id = gameId
+    gameToRemove.value.name = gameName
+}
+
+const onDeleteGame = () => {
+    removeGame(gameToRemove.value.id)
+    gameToRemove.value = {
+        id: '',
+        name: ''
+    }
+    closeModal();
 }
 
 </script>
@@ -82,10 +110,13 @@ const changeSportFilter = (value: string) => {
 
         </div>
         <div class="flex flex-col w-full gap-2" v-if="savedGames" v-for="game in savedGames" :key="game.gameId">
-            <SavedGamesBox :gameData="game" />
+            <SavedGamesBox :gameData="game" @open-delete-modal="onDeleteOpenModal" />
         </div>
         <div v-else>
             <p>You don't have saved games yet!</p>
         </div>
+        <DeleteSavedBoxModal :isOpenDeleteModal="isOpenDeleteModal" :gameName="gameToRemove.name" @close-modal="closeModal"
+            @delete-game="onDeleteGame" />
+
     </section>
 </template>

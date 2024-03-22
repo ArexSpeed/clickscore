@@ -8,6 +8,8 @@ import Schedule from '@/components/Schedule.vue';
 import Standing from '@/components/Standing.vue';
 import useSavedGames from '@/composables/useSavedGames';
 import { useSimulatorStore } from '@/stores/simulator';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const stickyToggleButton = ref<HTMLElement | null>(null);
 
@@ -31,7 +33,10 @@ const onSave = () => {
         standing: simulator.standing
     }
     saveNewGame(newGame)
-    console.log("New game saved")
+    toast("Your game is saved!", {
+        "type": "success",
+        "dangerouslyHTMLString": true
+    })
 }
 
 const handleScroll = () => {

@@ -7,13 +7,14 @@ import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import type { SavedGame } from '@/types';
 import { useRouter } from 'vue-router';
 import { useSimulatorStore } from '@/stores/simulator';
+// import useSavedGames from "@/composables/useSavedGames";
 
-const props = defineProps<{ gameData: SavedGame }>()
+const props = defineProps<{ gameData: SavedGame }>();
+const emit = defineEmits(['open-delete-modal']);
+
 const gameData = ref(props.gameData)
 const router = useRouter()
 const simulator = useSimulatorStore()
-
-console.log(gameData);
 
 const goToGame = (game: SavedGame) => {
     simulator.onSelectSport(game.sport)
@@ -21,6 +22,10 @@ const goToGame = (game: SavedGame) => {
     simulator.onSelectTeams(game.teams)
     simulator.setStandingsFromSavedGames(game.standing)
     router.push(`/simulator/game?gameId=${game.gameId}`)
+}
+
+const openDeleteModal = () => {
+    emit('open-delete-modal', gameData.value.gameId, gameData.value.gameName);
 }
 
 </script>
@@ -82,7 +87,7 @@ const goToGame = (game: SavedGame) => {
                             <button :class="[
                                 active ? 'bg-blue-400 text-white' : 'text-gray-200',
                                 'group flex w-full items-center rounded-md px-2 py-2 text-sm',
-                            ]">
+                            ]" @click="openDeleteModal">
 
                                 Delete
                             </button>

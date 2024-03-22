@@ -35,7 +35,13 @@ export default function useSavedGames() {
     localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
   }
 
+  function removeGame(gameId: string) {
+    const afterRemoveGame = gamesRef.value.filter((games) => games.gameId !== gameId)
+    gamesRef.value = afterRemoveGame
+    localStorage.setItem('savedGames', JSON.stringify(gamesRef.value))
+  }
+
   onMounted(() => fetchGames())
 
-  return { gamesRef, saveNewGame }
+  return { gamesRef, saveNewGame, removeGame }
 }
