@@ -1321,5 +1321,82 @@
                 "skillC": 69
             }
         ]
+    },
+    {
+        "leagueId": "41",
+        "sport": "Volleyball",
+        "leagueName": "Poland",
+        "teams": [
+            {
+                "id": "1235233",
+                "name": "Skra Bełchatów",
+                "skillA": 90,
+                "skillB": 88,
+                "skillC": 86
+            },
+            {
+                "id": "2356432",
+                "name": "Zaksa Kędzierzyn-Koźle",
+                "skillA": 89,
+                "skillB": 87,
+                "skillC": 85
+            },
+            {
+                "id": "4378498",
+                "name": "Jastrzębski Węgiel",
+                "skillA": 88,
+                "skillB": 86,
+                "skillC": 84
+            },
+            {
+                "id": "5892341",
+                "name": "Asseco Resovia Rzeszów",
+                "skillA": 87,
+                "skillB": 85,
+                "skillC": 83
+            },
+            {
+                "id": "6783492",
+                "name": "GKS Katowice",
+                "skillA": 86,
+                "skillB": 84,
+                "skillC": 82
+            },
+            {
+                "id": "7459832",
+                "name": "Aluron Virtu CMC Zawiercie",
+                "skillA": 85,
+                "skillB": 83,
+                "skillC": 81
+            },
+            {
+                "id": "8347983",
+                "name": "Trefl Gdańsk",
+                "skillA": 84,
+                "skillB": 82,
+                "skillC": 80
+            },
+            {
+                "id": "9213498",
+                "name": "Cuprum Lubin",
+                "skillA": 83,
+                "skillB": 81,
+                "skillC": 79
+            },
+            {
+                "id": "1023948",
+                "name": "GKS Świt Nowy Dwór Mazowiecki",
+                "skillA": 82,
+                "skillB": 80,
+                "skillC": 78
+            },
+            {
+                "id": "1123094",
+                "name": "Effector Kielce",
+                "skillA": 81,
+                "skillB": 79,
+                "skillC": 77
+            }
+        ]
     }
 ]

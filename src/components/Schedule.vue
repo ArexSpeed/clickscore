@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PlayButton from './ui/PlayButton.vue';
 import { useSimulatorStore } from '@/stores/simulator';
-import { playMatch, playMatchBasketball } from "@/utils/playMatch";
+import { playMatch, playMatchBasketball, playMatchSpeedway } from "@/utils/playMatch";
 import type { ScheduleGame, Team } from '@/types';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 
@@ -11,7 +11,7 @@ const onPlay = (host: Team, guest: Team, gameId: string, round: number) => {
     console.log("r", round);
     //isPlayed.value = true;
 
-    const { score_host, score_guest, hostResults, guestResults } = playMatch(host, guest, gameId, round);
+    const { score_host, score_guest, hostResults, guestResults } = playMatch(simulator.selectedSport, host, guest);
     console.log(score_host, score_guest);
     console.log(hostResults, guestResults);
     simulator.onUpdateSchedule(round, gameId, score_host, score_guest);

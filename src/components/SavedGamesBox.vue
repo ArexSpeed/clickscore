@@ -3,6 +3,8 @@ import { ref } from 'vue';
 import FootballIcon from './icons/FootballIcon.vue';
 import BasketballIcon from './icons/BasketballIcon.vue';
 import SpeedwayIcon from './icons/SpeedwayIcon.vue';
+import VolleyballIcon from './icons/VolleyballIcon.vue';
+import FormulaIcon from './icons/FormulaIcon.vue';
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import type { SavedGame } from '@/types';
 import { useRouter } from 'vue-router';
@@ -43,6 +45,8 @@ const openRenameModal = () => {
             <FootballIcon v-if="gameData.sport === 'Football'" class="w-8 h-8" />
             <BasketballIcon v-if="gameData.sport === 'Basketball'" class="w-8 h-8" />
             <SpeedwayIcon v-if="gameData.sport === 'Speedway'" class="w-8 h-8" />
+            <VolleyballIcon v-if="gameData.sport === 'Volleyball'" class="w-8 h-8" />
+            <FormulaIcon v-if="gameData.sport === 'Formula'" class="w-8 h-8" />
             <div class="flex flex-col">
 
                 <span class="font-semibold">{{ gameData.gameName }}</span>

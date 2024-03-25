@@ -1,6 +1,44 @@
 import type { Team } from '@/types'
 
-export function playMatch(host: Team, guest: Team, gameId: string, round: number) {
+interface Result {
+  score_host: number
+  score_guest: number
+  hostResults: {
+    games: number
+    win: number
+    draw: number
+    loses: number
+    goalPlus: number
+    goalMinus: number
+    points: number
+  }
+  guestResults: {
+    games: number
+    win: number
+    draw: number
+    loses: number
+    goalPlus: number
+    goalMinus: number
+    points: number
+  }
+}
+
+export function playMatch(sport: string, host: Team, guest: Team): Result {
+  switch (sport) {
+    case 'Football':
+      return playMatchFootball(host, guest)
+    case 'Basketball':
+      return playMatchBasketball(host, guest)
+    case 'Speedway':
+      return playMatchSpeedway(host, guest)
+    case 'Volleyball':
+      return playMatchVolleyball(host, guest)
+    default:
+      return playMatchFootball(host, guest)
+  }
+}
+
+export function playMatchFootball(host: Team, guest: Team) {
   console.log('play', host, guest)
   let hc = 0.01
   let point = 0
@@ -239,5 +277,198 @@ export function playMatchBasketball(host: Team, guest: Team) {
 
   let score_host = host_point
   let score_guest = guest_point
+  return { score_host, score_guest, hostResults, guestResults }
+}
+
+export function playMatchSpeedway(host: Team, guest: Team) {
+  let host_point = 0
+  let guest_point = 0
+  let hc = 0.1
+  let host_skil = 0,
+    guest_skil = 0
+
+  //40% t, 30% tw, 30% m;
+  let host_all = host.skillA + host.skillB + host.skillC
+  let guest_all = guest.skillA + guest.skillB + guest.skillC
+  for (let i = 0; i < 15; i++) {
+    if (i < 2) {
+      host_skil = host.skillC + host.skillC * hc + Math.floor(Math.random() * 10)
+      guest_skil = guest.skillC + Math.floor(Math.random() * 10)
+    } else if (i < 4) {
+      host_skil = host.skillB + host.skillB * hc + Math.floor(Math.random() * 10)
+      guest_skil = guest.skillB + Math.floor(Math.random() * 10)
+    } else if (i < 6) {
+      host_skil = host.skillA + host.skillA * hc + Math.floor(Math.random() * 10)
+      guest_skil = guest.skillA + Math.floor(Math.random() * 10)
+    } else if (i < 9) {
+      host_skil =
+        (host.skillB + host.skillB * hc + Math.floor(Math.random() * 10)) * 0.5 +
+        (host.skillC + host.skillC * hc + Math.floor(Math.random() * 10)) * 0.5
+      guest_skil =
+        (guest.skillB + Math.floor(Math.random() * 10)) * 0.5 +
+        (guest.skillC + Math.floor(Math.random() * 10)) * 0.5
+    } else if (i < 12) {
+      host_skil =
+        (host.skillB + host.skillB * hc + Math.floor(Math.random() * 10)) * 0.5 +
+        (host.skillA + host.skillA * hc + Math.floor(Math.random() * 10)) * 0.5
+      guest_skil =
+        (guest.skillB + Math.floor(Math.random() * 10)) * 0.5 +
+        (guest.skillA + Math.floor(Math.random() * 10)) * 0.5
+    } else if (i < 15) {
+      host_skil =
+        (host.skillA + host.skillA * hc + Math.floor(Math.random() * 10)) * 0.5 +
+        (host.skillC + host.skillC * hc + Math.floor(Math.random() * 10)) * 0.5
+      guest_skil =
+        (guest.skillA + Math.floor(Math.random() * 10)) * 0.5 +
+        (guest.skillC + Math.floor(Math.random() * 10)) * 0.5
+    }
+
+    host_point > guest_point ? (host_skil -= 5) : (host_skil += 10)
+    guest_point > host_point ? (guest_skil -= 5) : (guest_skil += 10)
+
+    let host_pow = Math.floor(Math.random() * (host_skil - host_all / 2) + host_all / 2)
+    let guest_pow = Math.floor(Math.random() * (guest_skil - guest_all / 2) + guest_all / 2)
+
+    if (host_pow > guest_pow + 10) {
+      host_point += 5
+      guest_point += 1
+    } else if (host_pow > guest_pow + 5) {
+      host_point += 4
+      guest_point += 2
+    } else if (host_pow + 10 < guest_pow) {
+      host_point += 1
+      guest_point += 5
+    } else if (host_pow + 5 < guest_pow) {
+      host_point += 2
+      guest_point += 4
+    } else {
+      host_point += 3
+      guest_point += 3
+    }
+
+    //console.log(host_point + ':' + guest_point);
+  }
+
+  let hostResults = {
+    games: 1,
+    win: 0,
+    draw: 0,
+    loses: 0,
+    goalPlus: host_point,
+    goalMinus: guest_point,
+    points: 0
+  }
+  let guestResults = {
+    games: 1,
+    win: 0,
+    draw: 0,
+    loses: 0,
+    goalPlus: guest_point,
+    goalMinus: host_point,
+    points: 0
+  }
+
+  if (host_point > guest_point) {
+    hostResults.points = 3
+    guestResults.points = 0
+    hostResults.win = 1
+    guestResults.loses = 1
+  } else if (host_point < guest_point) {
+    guestResults.points = 3
+    hostResults.points = 0
+    guestResults.win = 1
+    hostResults.loses = 1
+  } else if (host_point === guest_point) {
+    hostResults.points = 1
+    guestResults.points = 1
+    hostResults.draw = 1
+    guestResults.draw = 1
+  }
+
+  let score_host = host_point
+  let score_guest = guest_point
+
+  return { score_host, score_guest, hostResults, guestResults }
+}
+
+export function playMatchVolleyball(host: Team, guest: Team) {
+  let hc = 0.05
+  let host_point = 0
+  let guest_point = 0
+  // skillA - attack skillB - setter skillC - defence
+
+  let host_skil =
+    Math.floor(host.skillA + host.skillA * hc) * 0.4 +
+    Math.floor(host.skillB + host.skillB * hc) * 0.3 +
+    Math.floor(host.skillC + host.skillC * hc) * 0.3
+  let guest_skil =
+    Math.floor(guest.skillA) * 0.4 + Math.floor(guest.skillB) * 0.3 + Math.floor(guest.skillC) * 0.3
+  //console.log(host_skil + ' vs ' + guest_skil)
+
+  for (let i = 0; i < 5; i++) {
+    host_point > guest_point ? (host_skil -= 5) : (host_skil += 10)
+    guest_point > host_point ? (guest_skil -= 5) : (guest_skil += 10)
+
+    let rand_h = Math.floor(Math.random() * 20)
+    let rand_g = Math.floor(Math.random() * 20)
+    let host_pow = Math.floor(Math.random() * (host_skil - rand_h) + rand_h)
+    let guest_pow = Math.floor(Math.random() * (guest_skil - rand_g) + rand_g)
+    //console.log("powe: " + host_pow + ' vs ' + guest_pow);
+    if (host_pow >= guest_pow) {
+      host_point++
+    } else if (host_pow < guest_pow) {
+      guest_point++
+    }
+
+    if (host_point == 3 || guest_point == 3) {
+      break
+    }
+  }
+
+  let hostResults = {
+    games: 1,
+    win: 0,
+    draw: 0,
+    loses: 0,
+    goalPlus: host_point,
+    goalMinus: guest_point,
+    points: 0
+  }
+  let guestResults = {
+    games: 1,
+    win: 0,
+    draw: 0,
+    loses: 0,
+    goalPlus: guest_point,
+    goalMinus: host_point,
+    points: 0
+  }
+
+  //Adding points
+  if ((host_point == 3 && guest_point == 1) || guest_point == 0) {
+    hostResults.points = 3
+    guestResults.points = 0
+    hostResults.win = 1
+    guestResults.loses = 1
+  } else if (host_point == 3 && guest_point == 2) {
+    hostResults.points = 2
+    guestResults.points = 1
+    hostResults.win = 1
+    guestResults.loses = 1
+  } else if (host_point == 2 && guest_point == 3) {
+    hostResults.points = 1
+    guestResults.points = 2
+    hostResults.loses = 1
+    guestResults.win = 1
+  } else if ((guest_point == 3 && host_point == 1) || host_point == 0) {
+    guestResults.points = 3
+    hostResults.points = 0
+    guestResults.win = 1
+    hostResults.loses = 1
+  }
+
+  let score_host = host_point
+  let score_guest = guest_point
+
   return { score_host, score_guest, hostResults, guestResults }
 }

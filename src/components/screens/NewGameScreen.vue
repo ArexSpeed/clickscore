@@ -14,6 +14,7 @@ const selectedLeagues = ref<League[]>([])
 const simulator = useSimulatorStore();
 
 const onSelectSport = (id: string, name: string) => {
+    console.log('onSelectSport', id, name)
     selectedSport.value = id
     simulator.onSelectSport(name);
     filterLeague();
