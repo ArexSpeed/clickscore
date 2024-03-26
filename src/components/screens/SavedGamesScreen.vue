@@ -93,7 +93,7 @@ const onRenameGame = (newName: string) => {
 }
 
 onMounted(() => {
-    savedGames.value = gamesRef.value
+    savedGames.value = gamesRef.value.sort((a, b) => new Date(b.lastSaveDate).getTime() - new Date(a.lastSaveDate).getTime())
 })
 
 watch(searchGameValue, () =>

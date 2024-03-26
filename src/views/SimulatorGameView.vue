@@ -14,6 +14,8 @@ import 'vue3-toastify/dist/index.css';
 const stickyToggleButton = ref<HTMLElement | null>(null);
 
 const tabsStore = useTabsStore();
+const currentTab = ref('')
+
 const simulator = useSimulatorStore();
 const { gamesRef, saveNewGame } = useSavedGames()
 
@@ -27,7 +29,7 @@ const onSave = () => {
         gameName: simulator.leagueName,
         sport: simulator.selectedSport,
         option: "league",
-        lastSaveDate: "12.02.2024",
+        lastSaveDate: new Date(),
         teams: simulator.teams,
         schedule: simulator.schedule,
         standing: simulator.standing
@@ -67,10 +69,7 @@ onBeforeUnmount(() => {
         <Header :title="simulator.leagueName" :onSave="onSave" />
         <div class="sticky-toggle-button lg:hidden" ref="stickyToggleButton">
             <div class="flex items-center justify-center w-full">
-
-
-                <ToggleButton tab1="Schedule" tab2="Standing" />
-
+                <ToggleButton :tabs="['Schedule', 'Standing']" />
             </div>
         </div>
 

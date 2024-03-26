@@ -60,7 +60,7 @@ export type SavedGame = {
   gameName: string
   sport: string
   option: string
-  lastSaveDate: string
+  lastSaveDate: Date
   teams: Team[]
   schedule: Schedule[]
   standing: Standing[]

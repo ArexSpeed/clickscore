@@ -12,6 +12,7 @@ import { useSimulatorStore } from '@/stores/simulator';
 import PlayIcon from './icons/PlayIcon.vue';
 import EditIcon from './icons/EditIcon.vue';
 import DeleteIcon from './icons/DeleteIcon.vue';
+import moment from 'moment';
 
 const props = defineProps<{ gameData: SavedGame }>();
 const emit = defineEmits(['open-delete-modal', 'open-rename-modal']);
@@ -52,7 +53,9 @@ const openRenameModal = () => {
                 <span class="font-semibold">{{ gameData.gameName }}</span>
                 <div class="flex flex-row items-center gap-2">
                     <span class="p-1 text-xs bg-blue-400 rounded-md text-gray-71">{{ gameData.option }}</span>
-                    <span class="text-xs text-gray-400">Last opened: {{ gameData.lastSaveDate }}</span>
+                    <span class="text-xs text-gray-400">Last opened: {{
+                        moment(gameData.lastSaveDate).calendar()
+                    }}</span>
                 </div>
             </div>
         </div>
@@ -74,7 +77,7 @@ const openRenameModal = () => {
                     leave-active-class="transition duration-75 ease-in" leave-from-class="transform scale-100 opacity-100"
                     leave-to-class="transform scale-95 opacity-0">
                     <MenuItems
-                        class="absolute right-0 z-30 w-auto h-auto mt-2 origin-top-right bg-gray-700 divide-y divide-gray-800 rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
+                        class="absolute right-0 z-50 w-auto h-auto mt-2 origin-top-right bg-gray-700 divide-y divide-gray-800 rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
                         <div class="px-1 py-1">
                             <MenuItem v-slot="{ active }">
 
