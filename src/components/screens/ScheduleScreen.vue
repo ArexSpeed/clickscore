@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PlayButton from './ui/PlayButton.vue';
 import { useSimulatorStore } from '@/stores/simulator';
 import { playMatch, playMatchBasketball, playMatchSpeedway } from "@/utils/playMatch";
 import type { ScheduleGame, Team } from '@/types';
@@ -15,7 +14,7 @@ const onPlay = (host: Team, guest: Team, gameId: string, round: number) => {
     console.log(score_host, score_guest);
     console.log(hostResults, guestResults);
     simulator.onUpdateSchedule(round, gameId, score_host, score_guest);
-    simulator.onUpdateStandings(host.name, guest.name, hostResults, guestResults);
+    simulator.onUpdateStandings(host.id, guest.id, hostResults, guestResults);
 }
 
 const onPlayAll = (games: ScheduleGame[], round: number) => {

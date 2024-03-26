@@ -4,6 +4,7 @@ export const createStanding = (teams: Team[]): Standing[] => {
   const table: Standing[] = []
   teams.forEach((team) =>
     table.push({
+      id: team.id,
       name: team.name,
       games: 0,
       win: 0,

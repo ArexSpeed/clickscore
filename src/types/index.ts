@@ -28,6 +28,7 @@ export type ScheduleGame = {
 }
 
 export type Standing = {
+  id: string
   name: string
   games: number
   win: number

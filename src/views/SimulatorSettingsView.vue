@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import TeamSkillsBox from '@/components/ui/TeamSkillsBox.vue';
 import Header from '@/components/Headers/Header.vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useSimulatorStore } from '@/stores/simulator';
@@ -9,30 +8,14 @@ import type { Schedule } from '@/types';
 import useSavedTeams from '@/composables/useSavedTeams';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
-import sportSkills from '@/data/sportSkills.json';
 import { ref, onMounted } from 'vue';
+import TeamsScreen from '@/components/screens/TeamsScreen.vue';
 
 const router = useRouter();
 const route = useRoute();
 const simulator = useSimulatorStore();
 const teamsQty = ref([4, 6, 8, 10, 12, 14, 16, 18, 20])
-const skillTitle = ref({
-    skillA: '',
-    skillB: '',
-    skillC: ''
-})
 const { teamsRef: savedTeams, saveNewTeams } = useSavedTeams()
-
-const setSkillTitle = () => {
-    const findSkill = sportSkills.find((skill) => skill.sportName === simulator.selectedSport)
-    if (findSkill) {
-        skillTitle.value = {
-            skillA: findSkill.skillA,
-            skillB: findSkill.skillB,
-            skillC: findSkill.skillC
-        }
-    }
-}
 
 const onStart = () => {
     const newSchedule: Schedule[] = generateSchedule(simulator.teams);
@@ -104,9 +87,6 @@ const saveTeamsToStorage = () => {
     })
 }
 
-onMounted(() => {
-    setSkillTitle();
-})
 </script>
 
 <template>
@@ -133,21 +113,7 @@ onMounted(() => {
         <label>League name:</label>
         <input type="text" v-model="simulator.leagueName" @change="onChangeLeagueName"
             class="w-full p-2 text-xl font-semibold bg-gray-800 rounded-lg outline-none focus:text-blue-200" />
-
-        <div class="flex flex-row items-center justify-between text-xs text-gray-400">
-            <span class="px-2">Team name</span>
-            <div class="flex flex-row items-center justify-center gap-4">
-                <span class="px-5">{{ skillTitle.skillA }}</span>
-                <span class="px-5">{{ skillTitle.skillB }}</span>
-                <span class="px-5">{{ skillTitle.skillC }}</span>
-            </div>
-        </div>
-        <div class="flex flex-col items-center justify-start w-full gap-2">
-            <div v-for="team, index in simulator.teams" :key="team.id" class="flex flex-row items-center w-full">
-                <span class="w-5 text-sm text-center text-gray-500">{{ index + 1 }}</span>
-                <TeamSkillsBox :team="team" />
-            </div>
-        </div>
+        <TeamsScreen />
         <div class="flex flex-row items-center justify-center">
             <button class="p-4 font-semibold text-black rounded-full bg-gradient-green" @click="onStart">
                 <svg class="w-6 h-6" data-slot="icon" fill="currentColor" stroke-width="1.5" stroke="currentColor"

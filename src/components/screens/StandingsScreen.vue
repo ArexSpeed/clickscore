@@ -30,10 +30,10 @@ const simulator = useSimulatorStore();
                             P
                         </th>
                         <th scope="col" class="p-1">
-                            G+
+                            +
                         </th>
                         <th scope="col" class="p-1">
-                            G-
+                            -
                         </th>
                         <th scope="col" class="p-1">
                             PTS

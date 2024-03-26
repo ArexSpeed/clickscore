@@ -52,12 +52,12 @@ export const useSimulatorStore = defineStore(
       schedule.value[scheduleId].games[gameIdx].isPlayed = true
     }
     function onUpdateStandings(
-      hostName: string,
-      guestName: string,
+      hostID: string,
+      guestID: string,
       hostResults: StandingResult,
       guestResults: StandingResult
     ) {
-      const hostTeamId = standing.value.findIndex((team) => team.name === hostName)
+      const hostTeamId = standing.value.findIndex((team) => team.id === hostID)
       standing.value[hostTeamId].games += hostResults.games
       standing.value[hostTeamId].win += hostResults.win
       standing.value[hostTeamId].draw += hostResults.draw
@@ -66,7 +66,7 @@ export const useSimulatorStore = defineStore(
       standing.value[hostTeamId].goalMinus += hostResults.goalMinus
       standing.value[hostTeamId].points += hostResults.points
 
-      const guestTeamId = standing.value.findIndex((team) => team.name === guestName)
+      const guestTeamId = standing.value.findIndex((team) => team.id === guestID)
       standing.value[guestTeamId].games += guestResults.games
       standing.value[guestTeamId].win += guestResults.win
       standing.value[guestTeamId].draw += guestResults.draw

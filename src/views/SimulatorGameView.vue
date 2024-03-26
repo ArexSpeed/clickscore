@@ -4,8 +4,9 @@ import { useTabsStore } from '@/stores/tabs';
 import { onMounted, ref, onBeforeUnmount, shallowRef } from 'vue';
 import Header from '@/components/Headers/Header.vue';
 import ToggleButton from '@/components/ui/ToggleButton.vue';
-import Schedule from '@/components/Schedule.vue';
-import Standing from '@/components/Standing.vue';
+import ScheduleScreen from '@/components/screens/ScheduleScreen.vue';
+import StandingsScreen from '@/components/screens/StandingsScreen.vue';
+import TeamsScreen from '@/components/screens/TeamsScreen.vue';
 import useSavedGames from '@/composables/useSavedGames';
 import { useSimulatorStore } from '@/stores/simulator';
 import { toast } from 'vue3-toastify';
@@ -15,7 +16,7 @@ const stickyToggleButton = ref<HTMLElement | null>(null);
 
 const tabsStore = useTabsStore();
 const currentTab = ref('')
-const currentView = shallowRef(Schedule);
+const currentView = shallowRef(StandingsScreen);
 
 const simulator = useSimulatorStore();
 const { gamesRef, saveNewGame } = useSavedGames()
@@ -54,15 +55,25 @@ const handleScroll = () => {
 
 function changeCurrentView(view: string) {
     if (view === "Schedule") {
-        currentView.value = Schedule
+        currentView.value = ScheduleScreen
         tabsStore.onSelectTab("Schedule")
         router.replace(
             {
 
                 query: { ...route.query, tab: 'schedule' }
             });
-    } else {
-        currentView.value = Standing
+    }
+    else if (view === "Teams") {
+        currentView.value = ScheduleScreen
+        tabsStore.onSelectTab("Teams")
+        router.replace(
+            {
+
+                query: { ...route.query, tab: 'teams' }
+            });
+    }
+    else {
+        currentView.value = StandingsScreen
         tabsStore.onSelectTab("Standings")
         router.replace(
             {
@@ -76,29 +87,29 @@ function setRoutesView() {
     if (!route.query.tab) {
         router.replace(
             {
-                query: { ...route.query, tab: 'schedule' }
+                query: { ...route.query, tab: 'standings' }
             });
-        currentView.value = Schedule
-        tabsStore.onSelectTab("Schedule")
-        return "Schedule"
+        currentView.value = ScheduleScreen
+        tabsStore.onSelectTab("Standings")
+        return "Standings"
     } else if (route.query.tab === 'schedule') {
-        currentView.value = Schedule
+        currentView.value = ScheduleScreen
         tabsStore.onSelectTab("Schedule")
         return "Schedule"
     }
     else if (route.query.tab === 'standings') {
-        currentView.value = Standing
+        currentView.value = StandingsScreen
         tabsStore.onSelectTab("Standings")
         return "Standings"
     }
     else {
         router.replace(
             {
-                query: { ...route.query, tab: 'schedule' }
+                query: { ...route.query, tab: 'standings' }
             });
-        currentView.value = Schedule
-        tabsStore.onSelectTab("Schedule")
-        return "Schedule"
+        currentView.value = StandingsScreen
+        tabsStore.onSelectTab("Standings")
+        return "Standings"
     }
 }
 
@@ -122,13 +133,14 @@ onBeforeUnmount(() => {
         <Header :title="simulator.leagueName" :onSave="onSave" />
         <div class="sticky-toggle-button lg:hidden" ref="stickyToggleButton">
             <div class="flex items-center justify-center w-full">
-                <ToggleButton :tabs="['Schedule', 'Standings']" @change-view="changeCurrentView" />
+                <ToggleButton :tabs="['Schedule', 'Standings', 'Teams']" @change-view="changeCurrentView" />
             </div>
         </div>
 
         <div class="flex flex-col items-center justify-start w-full gap-2 lg:hidden">
-            <Schedule v-if="tabsStore.selectedTab === 'Schedule'" />
-            <Standing v-if="tabsStore.selectedTab === 'Standings'" />
+            <ScheduleScreen v-if="tabsStore.selectedTab === 'Schedule'" />
+            <StandingsScreen v-if="tabsStore.selectedTab === 'Standings'" />
+            <TeamsScreen v-if="tabsStore.selectedTab === 'Teams'" />
         </div>
         <!-- <div class="flex flex-col items-center justify-start w-full gap-2 lg:hidden">
             <KeepAlive>
@@ -137,9 +149,14 @@ onBeforeUnmount(() => {
         </div> -->
         <div class="hidden lg:flex lg:flex-row">
 
-            <Schedule />
-
-            <Standing />
+            <ScheduleScreen />
+            <div class="flex flex-col w-full">
+                <div class="items-center justify-center hidden w-full lg:flex">
+                    <ToggleButton :tabs="['Standings', 'Teams']" @change-view="changeCurrentView" />
+                </div>
+                <TeamsScreen v-if="tabsStore.selectedTab === 'Teams'" />
+                <StandingsScreen v-if="tabsStore.selectedTab === 'Standings'" />
+            </div>
         </div>
 
     </section>
