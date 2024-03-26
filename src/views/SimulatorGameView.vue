@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from 'vue-router';
 import { useTabsStore } from '@/stores/tabs';
-import { onMounted, ref, onBeforeUnmount } from 'vue';
+import { onMounted, ref, onBeforeUnmount, shallowRef } from 'vue';
 import Header from '@/components/Headers/Header.vue';
 import ToggleButton from '@/components/ui/ToggleButton.vue';
 import Schedule from '@/components/Schedule.vue';
@@ -15,6 +15,7 @@ const stickyToggleButton = ref<HTMLElement | null>(null);
 
 const tabsStore = useTabsStore();
 const currentTab = ref('')
+const currentView = shallowRef(Schedule);
 
 const simulator = useSimulatorStore();
 const { gamesRef, saveNewGame } = useSavedGames()
@@ -51,8 +52,60 @@ const handleScroll = () => {
     }
 }
 
+function changeCurrentView(view: string) {
+    if (view === "Schedule") {
+        currentView.value = Schedule
+        tabsStore.onSelectTab("Schedule")
+        router.replace(
+            {
+
+                query: { ...route.query, tab: 'schedule' }
+            });
+    } else {
+        currentView.value = Standing
+        tabsStore.onSelectTab("Standings")
+        router.replace(
+            {
+                query: { ...route.query, tab: 'standings' }
+            });
+    }
+}
+
+function setRoutesView() {
+    console.log(route.query)
+    if (!route.query.tab) {
+        router.replace(
+            {
+                query: { ...route.query, tab: 'schedule' }
+            });
+        currentView.value = Schedule
+        tabsStore.onSelectTab("Schedule")
+        return "Schedule"
+    } else if (route.query.tab === 'schedule') {
+        currentView.value = Schedule
+        tabsStore.onSelectTab("Schedule")
+        return "Schedule"
+    }
+    else if (route.query.tab === 'standings') {
+        currentView.value = Standing
+        tabsStore.onSelectTab("Standings")
+        return "Standings"
+    }
+    else {
+        router.replace(
+            {
+                query: { ...route.query, tab: 'schedule' }
+            });
+        currentView.value = Schedule
+        tabsStore.onSelectTab("Schedule")
+        return "Schedule"
+    }
+}
+
+
 onMounted(() => {
-    tabsStore.onSelectTab("Schedule")
+    const tab = setRoutesView()
+    tabsStore.onSelectTab(tab)
     window.scrollTo(0, 0);
     window.addEventListener('scroll', handleScroll);
 });
@@ -69,14 +122,19 @@ onBeforeUnmount(() => {
         <Header :title="simulator.leagueName" :onSave="onSave" />
         <div class="sticky-toggle-button lg:hidden" ref="stickyToggleButton">
             <div class="flex items-center justify-center w-full">
-                <ToggleButton :tabs="['Schedule', 'Standing']" />
+                <ToggleButton :tabs="['Schedule', 'Standings']" @change-view="changeCurrentView" />
             </div>
         </div>
 
         <div class="flex flex-col items-center justify-start w-full gap-2 lg:hidden">
             <Schedule v-if="tabsStore.selectedTab === 'Schedule'" />
-            <Standing v-if="tabsStore.selectedTab === 'Standing'" />
+            <Standing v-if="tabsStore.selectedTab === 'Standings'" />
         </div>
+        <!-- <div class="flex flex-col items-center justify-start w-full gap-2 lg:hidden">
+            <KeepAlive>
+                <component :is="currentView"></component>
+            </KeepAlive>
+        </div> -->
         <div class="hidden lg:flex lg:flex-row">
 
             <Schedule />
