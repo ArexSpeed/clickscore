@@ -1,6 +1,10 @@
+<script setup lang="ts">
+const emit = defineEmits(['on-search']);              
+</script>
+
 <template>
     <form class="w-full max-w-lg mx-auto">
-        <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+        <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div class="relative">
             <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -9,9 +13,11 @@
                         d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
             </div>
-            <input type="search" id="default-search"
+            <input type="search" id="search" @input="
+                $emit('on-search', ($event.target as HTMLInputElement).value)
+                "
                 class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg ps-10 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search game..." required />
+                placeholder="Search game by name" required />
         </div>
     </form>
 </template>

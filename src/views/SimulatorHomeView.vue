@@ -29,7 +29,7 @@ onMounted(() => {
         <div class="flex items-center justify-center w-full">
             <ToggleButton tab1="New" tab2="Saved" @change-view="changeCurrentView" />
         </div>
-        <div class="flex items-center justify-center w-full">
+        <div class="flex flex-col items-center justify-center w-full">
             <KeepAlive>
                 <component :is="currentView"></component>
             </KeepAlive>

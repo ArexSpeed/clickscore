@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 import SavedGamesBox from '../SavedGamesBox.vue';
-import SearchBox from '../ui/SearchBox.vue';
+import SearchBox from '@/components/ui/SearchBox.vue';
 import FootballIcon from '../icons/FootballIcon.vue';
 import BasketballIcon from '../icons/BasketballIcon.vue';
 import SpeedwayIcon from '../icons/SpeedwayIcon.vue';
@@ -10,9 +10,12 @@ import FormulaIcon from '../icons/FormulaIcon.vue';
 import useSavedGames from "@/composables/useSavedGames";
 import DeleteSavedBoxModal from '@/components/modals/DeleteSavedBoxModal.vue';
 import RenameSavedBoxModal from "../modals/RenameSavedBoxModal.vue";
+import type { SavedGame } from "@/types";
 
 const activeSportFilter = ref("All");
-const { gamesRef: savedGames, removeGame, renameGame } = useSavedGames();
+const { gamesRef, removeGame, renameGame } = useSavedGames();
+const savedGames = ref<SavedGame[]>([])
+const searchGameValue = ref('');
 const isOpenDeleteModal = ref(false)
 const isOpenRenameModal = ref(false)
 const gameToRemove = ref({
@@ -23,34 +26,26 @@ const gameToRename = ref({
     id: '',
     name: '',
 })
-console.log("saved", savedGames.value);
-
-// const savedGames = [
-//     {
-//         id: "12312424",
-//         sport: "Football",
-//         name: "Premier League",
-//         option: "league",
-//         opened: "12.02.2024"
-//     },
-//     {
-//         id: "12312424232",
-//         sport: "Basketball",
-//         name: "NBA",
-//         option: "cup",
-//         opened: "14.02.2024"
-//     },
-//     {
-//         id: "123121312",
-//         sport: "Speedway",
-//         name: "Ekstraliga sezon 2023",
-//         option: "league",
-//         opened: "10.02.2024"
-//     }
-// ]
 
 const changeSportFilter = (value: string) => {
     activeSportFilter.value = value;
+}
+
+const searchGame = (searchValue: string) => {
+    searchGameValue.value = searchValue
+}
+
+const filterGames = () => {
+    savedGames.value = gamesRef.value;
+    if (activeSportFilter.value === "All") {
+        return savedGames.value = savedGames.value
+            .filter((user) => user.gameName?.toLowerCase().includes(searchGameValue.value.toLowerCase()))
+    } else {
+        return savedGames.value = savedGames.value
+            .filter((game) => game.sport === activeSportFilter.value)
+            .filter((user) => user.gameName?.toLowerCase().includes(searchGameValue.value.toLowerCase()))
+    }
+
 }
 
 function closeModal() {
@@ -97,13 +92,24 @@ const onRenameGame = (newName: string) => {
     closeRenameModal();
 }
 
+onMounted(() => {
+    savedGames.value = gamesRef.value
+})
+
+watch(searchGameValue, () =>
+    filterGames()
+)
+watch(activeSportFilter, () =>
+    filterGames()
+)
+
 </script>
 
 
 <template>
     <section class="flex flex-col items-center justify-center w-full max-w-lg gap-2 p-2">
         <div class="text-2xl">Saved games</div>
-        <SearchBox />
+        <SearchBox @on-search="searchGame" />
         <div class="flex flex-row flex-wrap justify-center gap-2">
             <button type="button" @click="changeSportFilter('All')"
                 class="p-2 text-sm font-medium text-center text-white rounded-lg hover:bg-blue-700"
