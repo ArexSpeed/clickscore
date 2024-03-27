@@ -27,15 +27,16 @@ export type ScheduleGame = {
   isPlayed: boolean
 }
 
-export type Standing = {
+export type Standings = {
   id: string
   name: string
   games: number
   win: number
   draw: number
   loses: number
-  goalPlus: number
-  goalMinus: number
+  plus: number
+  minus: number
+  bonus?: number
   points: number
 }
 
@@ -44,8 +45,8 @@ export type StandingResult = {
   win: number
   draw: number
   loses: number
-  goalPlus: number
-  goalMinus: number
+  plus: number
+  minus: number
   points: number
 }
 
@@ -64,5 +65,5 @@ export type SavedGame = {
   lastSaveDate: Date
   teams: Team[]
   schedule: Schedule[]
-  standing: Standing[]
+  standing: Standings[]
 }

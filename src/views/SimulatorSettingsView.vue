@@ -20,7 +20,7 @@ const { teamsRef: savedTeams, saveNewTeams } = useSavedTeams()
 const onStart = () => {
     const newSchedule: Schedule[] = generateSchedule(simulator.teams);
     simulator.onCreateSchedule(newSchedule);
-    const newStanding = createStanding(simulator.teams);
+    const newStanding = createStanding(simulator.teams, simulator.selectedSport, simulator.selectedOption);
     simulator.onCreateStanding(newStanding);
     const gameId = Math.floor(Math.random() * 1000000);
     router.push(`/simulator/game?gameId=${gameId}`);

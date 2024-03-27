@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSimulatorStore } from '@/stores/simulator';
-import { playMatch, playMatchBasketball, playMatchSpeedway } from "@/utils/playMatch";
+import { playMatch } from "@/utils/playMatch";
 import type { ScheduleGame, Team } from '@/types';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 
@@ -11,10 +11,10 @@ const onPlay = (host: Team, guest: Team, gameId: string, round: number) => {
     //isPlayed.value = true;
 
     const { score_host, score_guest, hostResults, guestResults } = playMatch(simulator.selectedSport, host, guest);
-    console.log(score_host, score_guest);
-    console.log(hostResults, guestResults);
+    //console.log(score_host, score_guest);
+    //console.log(hostResults, guestResults);
     simulator.onUpdateSchedule(round, gameId, score_host, score_guest);
-    simulator.onUpdateStandings(host.id, guest.id, hostResults, guestResults);
+    simulator.onUpdateStandings(host.id, guest.id, hostResults, guestResults, gameId, round);
 }
 
 const onPlayAll = (games: ScheduleGame[], round: number) => {

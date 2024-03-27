@@ -8,8 +8,8 @@ interface Result {
     win: number
     draw: number
     loses: number
-    goalPlus: number
-    goalMinus: number
+    plus: number
+    minus: number
     points: number
   }
   guestResults: {
@@ -17,8 +17,8 @@ interface Result {
     win: number
     draw: number
     loses: number
-    goalPlus: number
-    goalMinus: number
+    plus: number
+    minus: number
     points: number
   }
 }
@@ -69,8 +69,8 @@ export function playMatchFootball(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: score_host,
-    goalMinus: score_guest,
+    plus: score_host,
+    minus: score_guest,
     points: 0
   }
   let guestResults = {
@@ -78,8 +78,8 @@ export function playMatchFootball(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: score_guest,
-    goalMinus: score_host,
+    plus: score_guest,
+    minus: score_host,
     points: 0
   }
 
@@ -244,8 +244,8 @@ export function playMatchBasketball(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: host_point,
-    goalMinus: guest_point,
+    plus: host_point,
+    minus: guest_point,
     points: 0
   }
   let guestResults = {
@@ -253,8 +253,8 @@ export function playMatchBasketball(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: guest_point,
-    goalMinus: host_point,
+    plus: guest_point,
+    minus: host_point,
     points: 0
   }
 
@@ -354,8 +354,8 @@ export function playMatchSpeedway(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: host_point,
-    goalMinus: guest_point,
+    plus: host_point,
+    minus: guest_point,
     points: 0
   }
   let guestResults = {
@@ -363,18 +363,18 @@ export function playMatchSpeedway(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: guest_point,
-    goalMinus: host_point,
+    plus: guest_point,
+    minus: host_point,
     points: 0
   }
 
   if (host_point > guest_point) {
-    hostResults.points = 3
+    hostResults.points = 2
     guestResults.points = 0
     hostResults.win = 1
     guestResults.loses = 1
   } else if (host_point < guest_point) {
-    guestResults.points = 3
+    guestResults.points = 2
     hostResults.points = 0
     guestResults.win = 1
     hostResults.loses = 1
@@ -430,8 +430,8 @@ export function playMatchVolleyball(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: host_point,
-    goalMinus: guest_point,
+    plus: host_point,
+    minus: guest_point,
     points: 0
   }
   let guestResults = {
@@ -439,8 +439,8 @@ export function playMatchVolleyball(host: Team, guest: Team) {
     win: 0,
     draw: 0,
     loses: 0,
-    goalPlus: guest_point,
-    goalMinus: host_point,
+    plus: guest_point,
+    minus: host_point,
     points: 0
   }
 
